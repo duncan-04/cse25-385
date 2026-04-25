@@ -7,7 +7,7 @@
             }
 
             body {
-                color: ##8fa9b3;
+                color: #fff;
             }
 
             header {
@@ -116,7 +116,7 @@
                 footer {
                     text-align: center;
                     padding: 20px;
-                    background: #000;
+                    background: #fff;
                     font-size: 15px;
                 }
         
