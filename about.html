@@ -68,5 +68,104 @@
 
     </div>
 
+    body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #8fa7b3; /* light blue background */
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+}
+
+/* TOP SECTION */
+.top-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.top-text {
+    flex: 1;
+}
+
+.top-text h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.top-image {
+    flex: 1;
+}
+
+.top-image img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* DESCRIPTION */
+.description {
+    text-align: center;
+    margin: 40px 0;
+    line-height: 1.6;
+}
+
+/* FOCUS */
+.focus {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.focus h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+/* SUSTAINABILITY */
+.sustainability {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    margin: 40px 0;
+}
+
+.sustainability-text {
+    flex: 1;
+}
+
+.sustainability-text h1 {
+    font-size: 36px;
+}
+
+.sustainability-image {
+    flex: 1;
+}
+
+.sustainability-image img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #222;
+    color: #fff;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .top-section,
+    .sustainability {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
 </body>
 </html>
