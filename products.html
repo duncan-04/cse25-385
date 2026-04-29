@@ -4,115 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Battery Technology</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="styleshett">
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
 
-    <div class="container">
+    <body></body>
 
-      
-        <section class="top-banner">
-            <div class="banner-image">
-                <img src="battery-car-top.jpg" alt="Electric vehicle battery system">
-            </div>
+    <!-- NAV BAR -->
 
-            <div class="banner-text">
-                <p>
-                    WITH AN EXTENSIVE BATTERY PORTFOLIO, DIFFERENTIATED SOLUTIONS ARE PROVIDED FOR 
-                    MEETING DIVERSE NEEDS OF USERS WORLDWIDE.
-                </p>
-            </div>
-        </section>
-
-      
-        <section class="title-section">
-            <h2>ELECTRONIC VEHICLE BATTERY PACKS</h2>
-            <p>
-                POWERUP BATTERIES, WITH ITS DIVERSE PRODUCT LINEUP AND OPTIMAL SOLUTIONS, DELIVERS LONG 
-                DRIVING RANGE, HIGH RELIABILITY, AND QUICK CHARGING IN THE EV MARKET.
-            </p>
-        </section>
-
-        
-        <section class="battery-section">
-
-            <!-- Battery 1 -->
-            <div class="battery-item">
-                <div class="battery-image">
-                    <img src="battery1.jpg" alt="Battery electric vehicle">
-                </div>
-                <div class="battery-text">
-                    <h4>BATTERY ELECTRIC VEHICLE</h4>
-                    <p>
-                        A fully electric car.<br>
-                        Power Source: Uses battery only<br>
-                        Charging: Use a plug in charger<br>
-                        100% electricity. No fuel
-                    </p>
-                </div>
-            </div>
-
-          
-            <div class="battery-item">
-                <div class="battery-image">
-                    <img src="battery2.jpg" alt="Plug-in hybrid electric vehicle">
-                </div>
-                <div class="battery-text">
-                    <h4>PLUG-IN HYBRID ELECTRIC VEHICLE / EXTENDED RANGE ELECTRIC VEHICLE</h4>
-                    <p>
-                        A mix of electric + fuel engine<br>
-                        Power Source: Battery + petrol engine<br>
-                        Charging: Plug in charger + engine can recharge battery<br>
-                        It drives on electricity first then switches to fuel when battery is low
-                    </p>
-                </div>
-            </div>
-
-            
-            <div class="battery-item">
-                <div class="battery-image">
-                    <img src="battery3.jpg" alt="Hybrid electric vehicle">
-                </div>
-                <div class="battery-text">
-                    <h4>HYBRID ELECTRIC VEHICLE</h4>
-                    <p>
-                        A hybrid but not a plug-in.<br>
-                        Power Source: Battery + fuel engine<br>
-                        Charging: Battery charges automatically (regenerative braking)<br>
-                        Uses both engine and battery together.
-                    </p>
-                </div>
-            </div>
-
-            
-            <div class="battery-item">
-                <div class="battery-image">
-                    <img src="battery4.jpg" alt="Mild hybrid electric vehicle">
-                </div>
-                <div class="battery-text">
-                    <h4>MILD HYBRID ELECTRIC VEHICLE</h4>
-                    <p>
-                        A small electric assist system.<br>
-                        Power Source: Fuel engine + small battery<br>
-                        Charging: Automatic<br>
-                        Battery helps engine and cannot drive on electricity alone
-                    </p>
-                </div>
-            </div>
-
-        </section>
-
-        
-        <section class="features">
-            <h3>FEATURES OF BATTERIES</h3>
-            <div class="feature-list">
-                <span>FAST CHARGING PERFORMANCE</span>
-                <span>HIGH ENERGY STORAGE</span>
-                <span>ECO-FRIENDLY OPERATION</span>
-            </div>
-        </section>
-
+    
+    
+<!-- ELECTRONIC VEHICLE BATTERY PACKS -->
+<div class="packs-section">
+  <div style="display:flex;gap:32px;margin-bottom:32px;">
+    <div style="width:45%;height:200px;background:#c0c8d0;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#666;">Battery Pack Diagram</div>
+    <div style="flex:1;display:flex;align-items:center;">
+      <p class="intro-quote">With an extensive battery portfolio, differentiated solutions are provided to meet the diverse needs of users worldwide.</p>
     </div>
-
-</body>
-</html>
+  </div>
+ 
+  <div class="packs-header">Electronic Vehicle Battery Packs</div>
+  <div class="packs-subheader">PowerUp Batteries, with its diverse product lineup and optimal solutions, delivers long<br>driving range, high reliability, and quick charging in the EV market.</div>
+ 
+  <div class="pack-row">
+    <div style="width:42%;height:160px;background:#d0dce8;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#666;">BEV Image</div>
+    <div class="pack-info">
+      <h3>Battery Electric Vehicle</h3>
+      <p>A fully electric car.<br>Power Source: Uses battery only<br>Charging: Use a plug in charger<br>100% electricity, No fuel</p>
+    </div>
+  </div>
+ 
+  <div class="pack-row">
+    <div style="width:42%;height:160px;background:#d0dce8;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#666;">PHEV Image</div>
+    <div class="pack-info">
+      <h3>Plug-in Hybrid Electric Vehicle / Extended Range Electric Vehicle</h3>
+      <p>A mix of electric + fuel engine.<br>Power Source: Battery + petrol engine<br>Charging: Plug in charger + engine can recharge battery<br>It drives on electricity first then switches to fuel when battery is low</p>
+    </div>
+  </div>
+ 
+  <div class="pack-row">
+    <div style="width:42%;height:160px;background:#d0dce8;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#666;">HEV Image</div>
+    <div class="pack-info">
+      <h3>Hybrid Electric Vehicle</h3>
+      <p>A hybrid but not a plug-in.<br>Power Source: Battery + fuel engine<br>Charging: Battery charges automatically (regenerative braking).<br>uses both engine and battery together.</p>
+    </div>
+  </div>
+ 
+  <div class="pack-row">
+    <div style="width:42%;height:160px;background:#d0dce8;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#666;">MHEV Image</div>
+    <div class="pack-info">
+      <h3>Mild Hybrid Electric Vehicle</h3>
+      <p>A small electric assist system.<br>Power Source: Fuel engine + small battery<br>Charging: Automatic<br>Battery helps engine and cannot drive on electricity alone</p>
+    </div>
+  </div>
+</div>
+ 
+<!-- FEATURES BAR -->
+<div class="features-bar">
+  <h3>Features of Batteries</h3>
+  <span>Fast Charging Performance</span>
+  <span>High Energy Storage</span>
+  <span>Eco-Friendly Operation</span>
+</div>
+ 
