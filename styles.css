@@ -50,14 +50,46 @@
   .video-bar .vb-dot { width: 8px; height: 8px; background: #e00; border-radius: 50%; }
   .video-bar .vb-time { color: #aaa; font-size: 0.65rem; }
  
-  /* ===== WHY CHOOSE ===== */
-  .why-section {
-    display: flex; align-items: center; background: #222; color: #fff;
-    padding: 48px 48px; gap: 40px; margin-top: 20px;
-  }
-  .why-img { width: 45%; min-width: 200px; object-fit: cover; height: 220px; border-radius: 4px; }
-  .why-text h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.4rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
-  .why-text p { font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; line-height: 1.6; }
+/* ===== WHY CHOOSE ===== */
+.why-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* spreads image + text nicely */
+  background: #222;
+  color: #fff;
+  padding: 60px 80px; /* more breathing room */
+  gap: 60px; /* consistent spacing between image and text */
+  margin-top: 20px;
+}
+
+.why-img {
+  width: 45%;
+  max-width: 500px; /* prevents it from growing too large */
+  height: auto; /* keeps proportions */
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.why-text {
+  width: 50%;
+}
+
+.why-text h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.8rem; /* slightly larger for balance */
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.why-text p {
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  line-height: 1.6;
+  max-width: 500px; /* prevents overly long lines */
+}
  
   /* ===== WHAT WE OFFER ===== */
   .offer-section { padding: 48px 40px; }
