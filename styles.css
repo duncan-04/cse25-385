@@ -13,9 +13,7 @@
   body { font-family: 'Barlow', sans-serif; color: var(--dark); background: #fff; }
 
        
-
- 
-  /* ===== NAV ===== */
+/* ===== NAV ===== */
   nav {
     display: flex; align-items: center; justify-content: space-between;
     padding: 12px 32px; background: #fff; border-bottom: 1px solid #eee;
