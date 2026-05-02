@@ -9,345 +9,196 @@
 
   
   <link rel="stylesheet" href="styles.css">
- <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
- 
-    :root {
-      --black: #0a0a0a;
-      --white: #ffffff;
-      --red: #e82127;
-      --gray-light: #f4f4f4;
-      --gray-mid: #cccccc;
-      --gray-dark: #444;
-      --border: #e0e0e0;
-      --font-display: 'Rajdhani', sans-serif;
-      --font-body: 'Inter', sans-serif;
-    }
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
  
     body {
-      background: var(--white);
-      color: var(--black);
-      font-family: var(--font-body);
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background-color: #f0ede8;
+      color: #1a1a1a;
       min-height: 100vh;
     }
  
-    /* ── NAV ── */
-    nav {
+    /* Header */
+    header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 48px;
-      height: 64px;
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(8px);
-      z-index: 100;
+      padding: 18px 24px;
+      background-color: #f0ede8;
     }
  
-    .logo {
-      font-family: var(--font-display);
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--black);
-      display: flex;
-      align-items: center;
-      gap: 2px;
-    }
- 
-    .logo span { color: var(--red); }
- 
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      list-style: none;
-    }
- 
-    .nav-links a {
-      font-family: var(--font-display);
+    .shop-label {
       font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: var(--black);
-      transition: color 0.2s;
-    }
- 
-    .nav-links a:hover,
-    .nav-links a.active { color: var(--red); }
- 
-    /* ── SUB-HEADER ── */
-    .sub-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 48px;
-      border-bottom: 1px solid var(--border);
-    }
- 
-    .sub-header-left {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-    }
- 
-    .sub-logo {
-      font-family: var(--font-display);
-      font-size: 16px;
       font-weight: 700;
-      letter-spacing: 1.5px;
-      color: var(--black);
-    }
- 
-    .sub-logo span { color: var(--red); }
- 
-    .divider { width: 1px; height: 20px; background: var(--border); }
- 
-    .sub-shop {
-      font-family: var(--font-display);
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 2px;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--black);
     }
  
-    .sub-header-right {
+    .header-icons {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 14px;
     }
  
     .icon-btn {
       background: none;
-      border: 1.5px solid var(--border);
-      border-radius: 6px;
-      width: 36px;
-      height: 36px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      border: none;
       cursor: pointer;
-      color: var(--black);
-      transition: border-color 0.2s, color 0.2s;
-    }
- 
-    .icon-btn:hover { border-color: var(--red); color: var(--red); }
- 
-    /* ── MAIN ── */
-    main {
-      min-height: calc(100vh - 130px);
+      padding: 4px;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 80px 48px;
     }
  
-    /* ── CART CARD ── */
-    .cart-card {
-      width: 100%;
-      max-width: 520px;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      overflow: hidden;
+    /* Empty cart banner */
+    .empty-cart-banner {
+      background-color: #8a9aaa;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 24px;
     }
  
-    /* Empty state banner */
-    .empty-banner {
-      background: var(--gray-light);
-      padding: 48px 40px 36px;
-      text-align: center;
-      border-bottom: 1px solid var(--border);
-    }
- 
-    .empty-icon {
-      width: 56px;
-      height: 56px;
-      margin: 0 auto 20px;
-      opacity: 0.25;
+    .bag-icon {
+      margin-bottom: 16px;
     }
  
     .empty-title {
-      font-family: var(--font-display);
-      font-size: 22px;
+      font-size: 13px;
       font-weight: 700;
-      letter-spacing: 2px;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--black);
+      color: #1a1a1a;
       margin-bottom: 8px;
     }
  
-    .empty-sub {
-      font-size: 13px;
-      color: var(--gray-dark);
-      letter-spacing: 0.3px;
+    .empty-subtitle {
+      font-size: 12px;
+      font-weight: 600;
+      color: #1a1a1a;
     }
  
-    /* Order details */
-    .order-section { padding: 32px 40px; }
+    /* Order details section */
+    .order-section {
+      padding: 24px 24px 0;
+    }
  
-    .order-heading {
-      font-family: var(--font-display);
-      font-size: 11px;
+    .order-title {
+      font-size: 13px;
       font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--gray-dark);
-      margin-bottom: 24px;
+      text-decoration: underline;
+      margin-bottom: 16px;
     }
  
     .order-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 0;
-      border-bottom: 1px solid var(--border);
+      padding: 14px 0;
+      border-bottom: 1px solid #ccc;
     }
  
-    .order-row:last-of-type { border-bottom: none; }
+    .order-row:first-of-type {
+      border-top: none;
+    }
  
-    .order-label {
+    .row-label {
       font-size: 13px;
-      color: var(--gray-dark);
-      letter-spacing: 0.3px;
-    }
- 
-    .order-value {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--black);
-    }
- 
-    .order-value.muted { color: var(--gray-dark); font-weight: 400; font-size: 12px; }
- 
-    .subtotal-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 0 0;
-      margin-top: 4px;
-    }
- 
-    .subtotal-label {
-      font-family: var(--font-display);
-      font-size: 15px;
       font-weight: 700;
-      letter-spacing: 1px;
       text-transform: uppercase;
+      letter-spacing: 0.03em;
     }
  
-    .subtotal-value {
-      font-family: var(--font-display);
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--black);
+    .row-label.normal-weight {
+      font-weight: 400;
+      text-transform: none;
     }
  
-    /* Shop now link */
-    .shop-link-row {
-      padding: 0 40px 28px;
+    .row-value {
+      font-size: 13px;
+      color: #1a1a1a;
+    }
+ 
+    .row-value.muted {
+      color: #555;
+      font-style: normal;
+    }
+ 
+    /* Cart empty note */
+    .cart-empty-note {
       text-align: right;
-    }
- 
-    .shop-link {
       font-size: 12px;
-      color: var(--gray-dark);
-      letter-spacing: 0.3px;
+      color: #1a1a1a;
+      padding: 6px 0 0;
     }
  
-    .shop-link a {
-      color: var(--red);
+    .shop-now-link {
+      color: #c0392b;
       font-weight: 600;
       text-decoration: none;
-      letter-spacing: 0.5px;
+      margin-left: 4px;
     }
  
-    .shop-link a:hover { text-decoration: underline; }
- 
-    /* Checkout */
-    .checkout-area {
-      padding: 0 40px 40px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
+    .arrow {
+      display: inline-block;
+      margin-left: 4px;
     }
  
-    .total-display {
+    /* Total row */
+    .total-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 14px 0;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 4px;
+      padding: 16px 0 8px;
+      border-bottom: 1px solid #1a1a1a;
     }
  
     .total-label {
       font-size: 12px;
-      letter-spacing: 2px;
+      font-weight: 400;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
-      color: var(--gray-dark);
-      font-weight: 500;
     }
  
-    .total-amount {
-      font-family: var(--font-display);
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--black);
-    }
- 
-    .btn-checkout {
-      display: block;
-      width: 100%;
-      padding: 16px;
-      background: var(--black);
-      color: var(--white);
-      font-family: var(--font-display);
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      border: none;
-      cursor: pointer;
-      transition: background 0.2s;
-      text-align: center;
-    }
- 
-    .btn-checkout:hover { background: var(--red); }
- 
-    .btn-shop {
-      display: block;
-      width: 100%;
-      padding: 13px;
-      background: transparent;
-      color: var(--black);
-      font-family: var(--font-display);
+    .total-value {
       font-size: 13px;
       font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      border: 1.5px solid var(--border);
-      cursor: pointer;
-      transition: border-color 0.2s, color 0.2s;
-      text-align: center;
     }
  
-    .btn-shop:hover { border-color: var(--black); }
+    /* Checkout button */
+    .checkout-link {
+      display: block;
+      text-align: center;
+      padding: 20px 0 4px;
+      font-size: 18px;
+      font-weight: 700;
+      color: #1a3a8f;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
  
-    @media (max-width: 600px) {
-      nav, .sub-header { padding: 0 20px; }
-      .nav-links { display: none; }
-      main { padding: 40px 16px; }
-      .order-section, .checkout-area, .shop-link-row { padding-left: 24px; padding-right: 24px; }
-      .empty-banner { padding: 36px 24px 28px; }
+    /* Continue shopping button */
+    .continue-btn-wrap {
+      padding: 20px 24px 36px;
+    }
+ 
+    .continue-btn {
+      width: 100%;
+      background-color: #d6e4f0;
+      border: none;
+      border-radius: 8px;
+      padding: 22px 0;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      color: #1a1a1a;
     }
   </style>
+    
   </head>
 
   <body>
@@ -368,74 +219,83 @@
     <li><a href="contact.html">Contact</a></li>
   </ul>
 </nav>
- 
-<!-- SUB-HEADER -->
-  <div class="sub-header">
-    <div class="sub-header-left">
-      <div class="sub-logo">POWER<span>↑</span>P</div>
-      <div class="divider"></div>
-      <span class="sub-shop">Shop</span>
-    </div>
-    <div class="sub-header-right">
+
+     <!-- Header -->
+  <header>
+    <span class="shop-label">Shop</span>
+    <div class="header-icons">
+      <!-- Search icon -->
       <button class="icon-btn" aria-label="Search">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="7"/>
+          <line x1="16.5" y1="16.5" x2="22" y2="22"/>
+        </svg>
       </button>
+      <!-- Cart/badge icon -->
       <button class="icon-btn" aria-label="Cart">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <svg width="42" height="34" viewBox="0 0 54 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="1" width="52" height="38" rx="4" stroke="#2243a8" stroke-width="2" fill="none"/>
+          <rect x="6" y="7" width="30" height="22" rx="2" stroke="#2243a8" stroke-width="2" fill="none"/>
+          <line x1="6" y1="14" x2="36" y2="14" stroke="#2243a8" stroke-width="2"/>
+          <line x1="15" y1="7" x2="15" y2="29" stroke="#2243a8" stroke-width="2"/>
+          <line x1="6" y1="21" x2="36" y2="21" stroke="#2243a8" stroke-width="2"/>
+          <line x1="41" y1="10" x2="49" y2="10" stroke="#2243a8" stroke-width="2" stroke-linecap="round"/>
+          <line x1="45" y1="16" x2="49" y2="16" stroke="#2243a8" stroke-width="2" stroke-linecap="round"/>
+          <line x1="41" y1="22" x2="49" y2="22" stroke="#2243a8" stroke-width="2" stroke-linecap="round"/>
+        </svg>
       </button>
     </div>
+  </header>
+ 
+  <!-- Empty cart banner -->
+  <div class="empty-cart-banner">
+    <div class="bag-icon">
+      <!-- Shopping bag icon -->
+      <svg width="60" height="65" viewBox="0 0 60 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 20 L8 58 Q8 62 12 62 L48 62 Q52 62 52 58 L50 20 Z" stroke="#1e2a6e" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
+        <path d="M20 20 C20 12 22 6 30 6 C38 6 40 12 40 20" stroke="#1e2a6e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <p class="empty-title">Your cart is empty</p>
+    <p class="empty-subtitle">Add items from the shop to get started</p>
   </div>
  
-  <!-- MAIN -->
-  <main>
-    <div class="cart-card">
+  <!-- Order Details -->
+  <div class="order-section">
+    <p class="order-title">Order Details</p>
  
-      <!-- Empty state -->
-      <div class="empty-banner">
-        <svg class="empty-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M8 16l4 32h40l4-32H8z" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
-          <path d="M24 16V12a8 8 0 0 1 16 0v4" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-        </svg>
-        <div class="empty-title">Your Cart is Empty</div>
-        <div class="empty-sub">Add items from the shop to get started</div>
-      </div>
- 
-      <!-- Order Details -->
-      <div class="order-section">
-        <div class="order-heading">Order Details</div>
- 
-        <div class="order-row">
-          <span class="order-label">Shipping</span>
-          <span class="order-value">$50.00</span>
-        </div>
-        <div class="order-row">
-          <span class="order-label">Sales Tax</span>
-          <span class="order-value muted">Calculated at checkout</span>
-        </div>
- 
-        <div class="subtotal-row">
-          <span class="subtotal-label">Subtotal</span>
-          <span class="subtotal-value">$0.00</span>
-        </div>
-      </div>
- 
-      <!-- Shop link -->
-      <div class="shop-link-row">
-        <span class="shop-link">Your cart is empty. <a href="#">Shop now →</a></span>
-      </div>
- 
-      <!-- Checkout area -->
-      <div class="checkout-area">
-        <div class="total-display">
-          <span class="total-label">Total</span>
-          <span class="total-amount">$0.00</span>
-        </div>
-        <button class="btn-checkout">Checkout</button>
-        <button class="btn-shop">Continue Shopping</button>
-      </div>
- 
+    <div class="order-row">
+      <span class="row-label">Shipping</span>
+      <span class="row-value">$50.00</span>
     </div>
-  </main>
+ 
+    <div class="order-row">
+      <span class="row-label normal-weight">Sales Tax</span>
+      <span class="row-value muted">Calculated at checkout</span>
+    </div>
+ 
+    <div class="order-row" style="border-bottom: none; padding-bottom: 0;">
+      <span class="row-label">Subtotal</span>
+      <span class="row-value">$0.00</span>
+    </div>
+ 
+    <div class="cart-empty-note">
+      Your cart is empty. <a href="#" class="shop-now-link">Shop now</a> <span class="arrow">&#8594;</span>
+    </div>
+ 
+    <div class="total-row" style="margin-top: 12px;">
+      <span class="total-label">Total</span>
+      <span class="total-value">$0.00</span>
+    </div>
+ 
+    <a href="#" class="checkout-link">Checkout</a>
+  </div>
+ 
+  <!-- Continue Shopping button -->
+  <div class="continue-btn-wrap">
+    <button class="continue-btn">Continue Shopping</button>
+  </div>
  
 </body>
 </html>
+ 
