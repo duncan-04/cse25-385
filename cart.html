@@ -9,7 +9,346 @@
 
   
   <link rel="stylesheet" href="styles.css">
-</head>
+ <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+    :root {
+      --black: #0a0a0a;
+      --white: #ffffff;
+      --red: #e82127;
+      --gray-light: #f4f4f4;
+      --gray-mid: #cccccc;
+      --gray-dark: #444;
+      --border: #e0e0e0;
+      --font-display: 'Rajdhani', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+ 
+    body {
+      background: var(--white);
+      color: var(--black);
+      font-family: var(--font-body);
+      min-height: 100vh;
+    }
+ 
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 64px;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+    }
+ 
+    .logo {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--black);
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+ 
+    .logo span { color: var(--red); }
+ 
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+ 
+    .nav-links a {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--black);
+      transition: color 0.2s;
+    }
+ 
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--red); }
+ 
+    /* ── SUB-HEADER ── */
+    .sub-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 48px;
+      border-bottom: 1px solid var(--border);
+    }
+ 
+    .sub-header-left {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+ 
+    .sub-logo {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: var(--black);
+    }
+ 
+    .sub-logo span { color: var(--red); }
+ 
+    .divider { width: 1px; height: 20px; background: var(--border); }
+ 
+    .sub-shop {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--black);
+    }
+ 
+    .sub-header-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+ 
+    .icon-btn {
+      background: none;
+      border: 1.5px solid var(--border);
+      border-radius: 6px;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--black);
+      transition: border-color 0.2s, color 0.2s;
+    }
+ 
+    .icon-btn:hover { border-color: var(--red); color: var(--red); }
+ 
+    /* ── MAIN ── */
+    main {
+      min-height: calc(100vh - 130px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 48px;
+    }
+ 
+    /* ── CART CARD ── */
+    .cart-card {
+      width: 100%;
+      max-width: 520px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+ 
+    /* Empty state banner */
+    .empty-banner {
+      background: var(--gray-light);
+      padding: 48px 40px 36px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+ 
+    .empty-icon {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 20px;
+      opacity: 0.25;
+    }
+ 
+    .empty-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+ 
+    .empty-sub {
+      font-size: 13px;
+      color: var(--gray-dark);
+      letter-spacing: 0.3px;
+    }
+ 
+    /* Order details */
+    .order-section { padding: 32px 40px; }
+ 
+    .order-heading {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gray-dark);
+      margin-bottom: 24px;
+    }
+ 
+    .order-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+ 
+    .order-row:last-of-type { border-bottom: none; }
+ 
+    .order-label {
+      font-size: 13px;
+      color: var(--gray-dark);
+      letter-spacing: 0.3px;
+    }
+ 
+    .order-value {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--black);
+    }
+ 
+    .order-value.muted { color: var(--gray-dark); font-weight: 400; font-size: 12px; }
+ 
+    .subtotal-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0 0;
+      margin-top: 4px;
+    }
+ 
+    .subtotal-label {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+ 
+    .subtotal-value {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--black);
+    }
+ 
+    /* Shop now link */
+    .shop-link-row {
+      padding: 0 40px 28px;
+      text-align: right;
+    }
+ 
+    .shop-link {
+      font-size: 12px;
+      color: var(--gray-dark);
+      letter-spacing: 0.3px;
+    }
+ 
+    .shop-link a {
+      color: var(--red);
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+    }
+ 
+    .shop-link a:hover { text-decoration: underline; }
+ 
+    /* Checkout */
+    .checkout-area {
+      padding: 0 40px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+ 
+    .total-display {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 4px;
+    }
+ 
+    .total-label {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gray-dark);
+      font-weight: 500;
+    }
+ 
+    .total-amount {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--black);
+    }
+ 
+    .btn-checkout {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      text-align: center;
+    }
+ 
+    .btn-checkout:hover { background: var(--red); }
+ 
+    .btn-shop {
+      display: block;
+      width: 100%;
+      padding: 13px;
+      background: transparent;
+      color: var(--black);
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: 1.5px solid var(--border);
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+      text-align: center;
+    }
+ 
+    .btn-shop:hover { border-color: var(--black); }
+ 
+    @media (max-width: 600px) {
+      nav, .sub-header { padding: 0 20px; }
+      .nav-links { display: none; }
+      main { padding: 40px 16px; }
+      .order-section, .checkout-area, .shop-link-row { padding-left: 24px; padding-right: 24px; }
+      .empty-banner { padding: 36px 24px 28px; }
+    }
+  </style>
+  </head>
 
   <body>
     <script src="script.js" defer></script>
@@ -30,52 +369,73 @@
   </ul>
 </nav>
  
-
-    
-    
-  
-
-<!-- CART -->
-<div class="cart-section">
-  <div class="cart-nav">
-    <div style="display:flex;align-items:center;gap:16px;">
-      <div class="cart-nav logo-sm">P<span style="color:var(--red)">O</span>WER<span style="color:var(--red)">↑</span>P</div>
-      <span style="border-left:1px solid #ccc;height:24px;display:inline-block;"></span>
-      <span class="shop-label">Shop</span>
+<!-- SUB-HEADER -->
+  <div class="sub-header">
+    <div class="sub-header-left">
+      <div class="sub-logo">POWER<span>↑</span>P</div>
+      <div class="divider"></div>
+      <span class="sub-shop">Shop</span>
     </div>
-    <div class="cart-icons">
-      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-      <div style="width:42px;height:36px;border:2px solid #3344aa;border-radius:4px;display:flex;align-items:center;justify-content:center;">
-        <svg width="18" height="18" fill="none" stroke="#3344aa" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-      </div>
+    <div class="sub-header-right">
+      <button class="icon-btn" aria-label="Search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
+      <button class="icon-btn" aria-label="Cart">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      </button>
     </div>
   </div>
  
-  <h2>Cart</h2>
-  <div class="cart-layout">
-    <div class="cart-item">
-      <div style="width:180px;height:110px;background:#b0b0b0;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#fff;">Li-ion Img</div>
-      <div class="cart-item-info">
-        <h3>Lithium Ion Battery</h3>
-        <div class="qty-row">
-          <span>Quantity: 1</span>
-          <span class="qty-select">∨</span>
-          <span>Remove</span>
-        </div>
-        <div class="price">$600.00</div>
+  <!-- MAIN -->
+  <main>
+    <div class="cart-card">
+ 
+      <!-- Empty state -->
+      <div class="empty-banner">
+        <svg class="empty-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 16l4 32h40l4-32H8z" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M24 16V12a8 8 0 0 1 16 0v4" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <div class="empty-title">Your Cart is Empty</div>
+        <div class="empty-sub">Add items from the shop to get started</div>
       </div>
+ 
+      <!-- Order Details -->
+      <div class="order-section">
+        <div class="order-heading">Order Details</div>
+ 
+        <div class="order-row">
+          <span class="order-label">Shipping</span>
+          <span class="order-value">$50.00</span>
+        </div>
+        <div class="order-row">
+          <span class="order-label">Sales Tax</span>
+          <span class="order-value muted">Calculated at checkout</span>
+        </div>
+ 
+        <div class="subtotal-row">
+          <span class="subtotal-label">Subtotal</span>
+          <span class="subtotal-value">$0.00</span>
+        </div>
+      </div>
+ 
+      <!-- Shop link -->
+      <div class="shop-link-row">
+        <span class="shop-link">Your cart is empty. <a href="#">Shop now →</a></span>
+      </div>
+ 
+      <!-- Checkout area -->
+      <div class="checkout-area">
+        <div class="total-display">
+          <span class="total-label">Total</span>
+          <span class="total-amount">$0.00</span>
+        </div>
+        <button class="btn-checkout">Checkout</button>
+        <button class="btn-shop">Continue Shopping</button>
+      </div>
+ 
     </div>
-    <div class="order-details">
-      <h3>Order Details</h3>
-      <div class="line"><span>Shipping:</span><span>$50.00</span></div>
-      <div class="line"><span>Sales Tax:</span><span>Calculated at checkout</span></div>
-      <div class="line"><span><strong>Subtotal:</strong></span><span><strong>$650.00</strong><div id="cart-items"></div><span id="cart-subtotal"></span></div>
-          <div id="cart-items"></div>
-<span id="cart-subtotal"></span>
-      <button class="checkout-btn">Checkout</button>
-      
-    </div>
-  </div>
-</div>
-  </body>
+  </main>
+ 
+</body>
 </html>
