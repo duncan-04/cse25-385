@@ -10,6 +10,140 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+ 
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background-color: #f0ede8;
+      color: #1a1a1a;
+      min-height: 100vh;
+      padding: 36px 28px;
+    }
+ 
+    /* Header row */
+    .header-row {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+ 
+    .page-title {
+      font-size: 17px;
+      font-weight: 700;
+    }
+ 
+    .hide-all {
+      font-size: 13px;
+      font-weight: 400;
+      color: #1a1a1a;
+      text-decoration: underline;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+ 
+    /* Accordion row */
+    .accordion-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 28px;
+      cursor: pointer;
+    }
+ 
+    .chevron {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+ 
+    .accordion-label {
+      font-size: 14px;
+      font-weight: 500;
+      color: #1a1a1a;
+    }
+ 
+    /* Content area: list + card side by side */
+    .content-area {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+    }
+ 
+    /* Payment list */
+    .payment-list {
+      list-style: none;
+      flex: 1;
+      padding: 12px 0;
+    }
+ 
+    .payment-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 400;
+      padding: 7px 0;
+      color: #1a1a1a;
+    }
+ 
+    .payment-list li .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: #1a1a1a;
+      flex-shrink: 0;
+    }
+ 
+    .payment-list li span {
+      letter-spacing: 0.01em;
+    }
+ 
+    /* Add payment card */
+    .add-card {
+      background-color: #8a9aaa;
+      border-radius: 14px;
+      width: 240px;
+      min-height: 130px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      cursor: pointer;
+      flex-shrink: 0;
+      padding: 24px;
+    }
+ 
+    .add-card .plus {
+      font-size: 30px;
+      font-weight: 300;
+      color: #1a1a1a;
+      line-height: 1;
+    }
+ 
+    .add-card .add-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #1a1a1a;
+      text-align: center;
+    }
+ 
+    /* Note */
+    .note {
+      margin-top: 28px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #1a1a1a;
+    }
+  </style>
 </head>
 
 <body>
@@ -29,40 +163,47 @@
     <li><a href="payment.html">Payment</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-
-  <!-- PAYMENT METHODS -->
-<div class="payment-methods">
-  <div class="pm-grid">
-    <!-- PayPal -->
-    <div class="pm-card"><span class="pm-text paypal"><span style="color:#003087;font-weight:800;">P</span><span style="color:#009cde;font-weight:800;">P</span> PayPal</span></div>
-    <!-- Mastercard -->
-    <div class="pm-card"><div class="mc-circles"><div class="mc-red"></div><div class="mc-yellow"></div></div><div style="font-size:0.6rem;color:#666;margin-top:2px;text-align:center;">mastercard</div></div>
-    <!-- Visa -->
-    <div class="pm-card"><span class="pm-text visa">VISA</span></div>
-    <!-- Maestro -->
-    <div class="pm-card">
-      <div class="maestro-wrap">
-        <div class="maestro-circles"><div class="m-red"></div><div class="m-blue"></div></div>
-        <div class="maestro-label">maestro</div>
-      </div>
-    </div>
-    <!-- Apple Pay -->
-    <div class="pm-card"><span class="pm-text applepay"> Pay</span></div>
-    <!-- Amazon Pay -->
-    <div class="pm-card">
-      <div class="amazon-pay">
-        <span class="ap-pay">pay</span>
-        <span class="ap-arrow">~</span>
-      </div>
-    </div>
-    <!-- Google Pay -->
-    <div class="pm-card"><span class="pm-text gpay"><span class="g">G</span> Pay</span></div>
-    <!-- Stripe -->
-    <div class="pm-card"><span class="pm-text stripe">stripe</span></div>
-  </div>
-</div>
-
 </nav>
 
+  
+ 
+  <!-- Header -->
+  <div class="header-row">
+    <h1 class="page-title">Payment Methods</h1>
+    <button class="hide-all">Hide All</button>
+  </div>
+ 
+  <!-- Accordion -->
+  <div class="accordion-row">
+    <svg class="chevron" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polyline points="3,6 9,12 15,6" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="accordion-label">What are the accepted methods of payment?</span>
+  </div>
+ 
+  <!-- Content: list + card -->
+  <div class="content-area">
+    <ul class="payment-list">
+      <li><span class="dot"></span><span>American Express</span></li>
+      <li><span class="dot"></span><span>Apple Pay</span></li>
+      <li><span class="dot"></span><span>Visa</span></li>
+      <li><span class="dot"></span><span>GOOGLE PAY</span></li>
+      <li><span class="dot"></span><span>MASTERCARD</span></li>
+      <li><span class="dot"></span><span>PAYPAL</span></li>
+    </ul>
+ 
+    <div class="add-card">
+      <span class="plus">+</span>
+      <span class="add-label">Add a Payment Method</span>
+    </div>
+  </div>
+ 
+  <!-- Note -->
+  <p class="note">Note: Exclusive payment methods are &nbsp;accepted on selected products.</p>
+ 
 </body>
 </html>
+
+
+
+  
