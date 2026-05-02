@@ -1,236 +1,326 @@
-/* =========================
-   PRODUCTS
-========================= */
+/* ============================================================
+   PowerUp Batteries — Full Website JavaScript (Simplified)
+   Add to every page: <script src="main.js" defer></script>
+   ============================================================ */
+
+
+/* ── PRODUCT DATA ── */
 const PRODUCTS = [
-  { id: 1, name: 'Lithium Ion Battery', price: 600 },
-  { id: 2, name: 'Nickel Battery', price: 520 },
-  { id: 3, name: 'Hybrid Battery Pack', price: 480 },
-  { id: 4, name: 'Mild Hybrid Battery', price: 350 },
-  { id: 5, name: 'Portable Charging Station', price: 220 },
-  { id: 6, name: 'EV Cable Charger', price: 85 }
+  { id: 1, name: 'Lithium Ion Battery',                       price: 600 },
+  { id: 2, name: 'Nickel Battery',                            price: 520 },
+  { id: 3, name: 'Hybrid Battery Pack',                       price: 480 },
+  { id: 4, name: 'Mild Hybrid Battery',                       price: 350 },
+  { id: 5, name: 'Portable Charging Station',                 price: 220 },
+  { id: 6, name: 'Portable Electronic Vehicle Cable Charger', price: 85  },
 ];
 
 const SHIPPING = 50;
 
 
-/* =========================
-   CART
-========================= */
-const getCart = () => JSON.parse(sessionStorage.getItem('cart') || '[]');
+/* ============================================================
+   CART HELPERS
+   ============================================================ */
 
-const saveCart = (cart) => {
-  sessionStorage.setItem('cart', JSON.stringify(cart));
-};
+function getCart() {
+  return JSON.parse(sessionStorage.getItem('pu_cart') || '[]');
+}
 
-function addToCart(id) {
+function saveCart(cart) {
+  sessionStorage.setItem('pu_cart', JSON.stringify(cart));
+}
+
+function addToCart(productId) {
+  const product = PRODUCTS.find(p => p.id === productId);
+  if (!product) return;
+
   const cart = getCart();
-  const item = cart.find(i => i.id === id);
+  const existing = cart.find(i => i.id === productId);
 
-  if (item) item.quantity++;
-  else {
-    const product = PRODUCTS.find(p => p.id === id);
-    if (!product) return;
+  if (existing) {
+    existing.quantity += 1;
+  } else {
     cart.push({ ...product, quantity: 1 });
   }
 
   saveCart(cart);
-  alert('Added to cart');
+  alert('✅ ' + product.name + ' has been added to your cart!');
 }
 
-function removeFromCart(id) {
-  saveCart(getCart().filter(i => i.id !== id));
-  renderCart();
-}
-
-function updateQuantity(id, qty) {
-  const cart = getCart();
-  const item = cart.find(i => i.id === id);
-  if (item) item.quantity = +qty;
+function removeFromCart(productId) {
+  const cart = getCart().filter(i => i.id !== productId);
   saveCart(cart);
-  renderCart();
+  renderCart(); // refresh cart display
 }
 
-
-/* =========================
-   NAV + DROPDOWN
-========================= */
-function initNav() {
-  const page = location.pathname.split('/').pop();
-
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    if (link.getAttribute('href') === page) {
-      link.style.color = 'red';
-    }
-  });
-
-  const dropdown = document.querySelector('.dropdown');
-  if (dropdown) {
-    dropdown.onmouseenter = () => dropdown.classList.add('active');
-    dropdown.onmouseleave = () => dropdown.classList.remove('active');
-  }
-}
-
-
-/* =========================
-   SHOP
-========================= */
-function initShop() {
-  document.querySelectorAll('.shop-btn').forEach((btn, i) => {
-    btn.onclick = () => addToCart(PRODUCTS[i].id);
-  });
-}
-
-
-/* =========================
-   CART PAGE
-========================= */
-function renderCart() {
-  const box = document.getElementById('cart-items');
-  if (!box) return;
-
+function updateQuantity(productId, newQty) {
   const cart = getCart();
-  box.innerHTML = '';
+  const item = cart.find(i => i.id === productId);
+  if (item) item.quantity = parseInt(newQty);
+  saveCart(cart);
+  renderCart(); // refresh totals
+}
 
-  if (cart.length === 0) {
-    box.innerHTML = `<p>Your cart is empty</p>`;
-    updateSummary(0);
-    return;
-  }
 
-  let total = 0;
+/* ============================================================
+   NAV — highlight active page link
+   ============================================================ */
 
-  cart.forEach(item => {
-    total += item.price * item.quantity;
-
-    box.innerHTML += `
-      <div>
-        <h4>${item.name}</h4>
-        <p>$${item.price} x ${item.quantity}</p>
-
-        <select onchange="updateQuantity(${item.id}, this.value)">
-          ${[1,2,3,4,5].map(n =>
-            `<option ${n===item.quantity?'selected':''}>${n}</option>`
-          )}
-        </select>
-
-        <button onclick="removeFromCart(${item.id})">Remove</button>
-      </div>
-    `;
+function highlightActiveNav() {
+  const currentPage = window.location.pathname.split('/').pop();
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    const linkPage = link.getAttribute('href');
+    if (linkPage === currentPage) {
+      link.style.color = '#c0392b';
+    }
   });
-
-  updateSummary(total);
-}
-
-function updateSummary(total) {
-  const shipping = total ? SHIPPING : 0;
-  const final = total + shipping;
-
-  const ship = document.getElementById('cart-shipping');
-  const sub = document.getElementById('cart-subtotal');
-
-  if (ship) ship.textContent = '$' + shipping;
-  if (sub) sub.textContent = '$' + final;
 }
 
 
-/* =========================
-   PAYMENT
-========================= */
-function initPayment() {
-  const btn = document.querySelector('.pay-submit');
-  if (!btn) return;
+/* ============================================================
+   HOME PAGE — hero & nav buttons
+   ============================================================ */
 
-  btn.onclick = (e) => {
-    e.preventDefault();
-
-    const inputs = document.querySelectorAll('input');
-    for (let input of inputs) {
-      if (!input.value.trim()) {
-        alert('Fill all fields');
-        return;
-      }
-    }
-
-    saveCart([]);
-    alert('Payment successful');
-    location.href = 'home.html';
-  };
-}
-
-
-/* =========================
-   CONTACT
-========================= */
-function initContact() {
-  const btn = document.querySelector('.cf-submit');
-  if (!btn) return;
-
-  btn.onclick = (e) => {
-    e.preventDefault();
-
-    const name = document.querySelector('[type="text"]');
-    const email = document.querySelector('[type="email"]');
-    const msg = document.querySelector('textarea');
-
-    if (!name.value || !email.value || !msg.value) {
-      alert('Fill all fields');
-      return;
-    }
-
-    alert('Message sent');
-    name.value = email.value = msg.value = '';
-  };
-}
-
-
-/* =========================
-   TESLA-STYLE EFFECTS
-========================= */
-function initEffects() {
-
-  // Fade-in
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) e.target.classList.add('show');
+function initHomePage() {
+  // "Learn More" / CTA buttons on home page
+  document.querySelectorAll('.cta-btn, .learn-more-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      alert('🔋 Welcome to PowerUp Batteries!\nExplore our range of EV battery solutions.');
     });
   });
 
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-  // Smooth scroll
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.onclick = (e) => {
-      e.preventDefault();
-      const target = document.querySelector(link.getAttribute('href'));
-      if (target) target.scrollIntoView({ behavior: 'smooth' });
-    };
-  });
-
-  // Button ripple
-  document.querySelectorAll('button').forEach(btn => {
-    btn.onclick = (e) => {
-      const span = document.createElement('span');
-      span.className = 'ripple';
-
-      const rect = btn.getBoundingClientRect();
-      span.style.left = e.clientX - rect.left + 'px';
-      span.style.top = e.clientY - rect.top + 'px';
-
-      btn.appendChild(span);
-      setTimeout(() => span.remove(), 500);
-    };
+  // "What We Offer" service cards
+  document.querySelectorAll('.offer-card').forEach(card => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', () => {
+      const label = card.querySelector('strong, .offer-card-label strong');
+      const service = label ? label.textContent : 'this service';
+      alert('🔧 ' + service + '\nContact us at powerupbatteriesbw@gmail.com to book this service.');
+    });
   });
 }
 
 
-/* =========================
-   INIT
-========================= */
-document.addEventListener('DOMContentLoaded', () => {
-  initNav();
-  initShop();
+/* ============================================================
+   SHOP PAGE — "Shop Now" buttons
+   ============================================================ */
+
+function initShopPage() {
+  // Wire each .shop-btn by its position to the matching product
+  const buttons = document.querySelectorAll('.product-card .shop-btn');
+  buttons.forEach((btn, index) => {
+    const product = PRODUCTS[index];
+    if (!product) return;
+    btn.style.cursor = 'pointer';
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      addToCart(product.id);
+    });
+  });
+
+  // "Shop All" button — scrolls to product list
+  document.querySelectorAll('.shop-all-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const section = document.querySelector('.products-section');
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        alert('🛒 Browse all our products above!');
+      }
+    });
+  });
+
+  // Category cards — filter prompt
+  document.querySelectorAll('.category-card').forEach(card => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', () => {
+      const title = card.querySelector('h4');
+      const category = title ? title.textContent : 'this category';
+      alert('📦 ' + category + '\nScroll up to browse all ' + category + ' products!');
+    });
+  });
+}
+
+
+/* ============================================================
+   CART PAGE — render items, quantities, totals
+   ============================================================ */
+
+function renderCart() {
+  const container = document.getElementById('cart-items');
+  if (!container) return;
+
+  const cart = getCart();
+  container.innerHTML = '';
+
+  if (cart.length === 0) {
+    container.innerHTML = `
+      <p style="color:#888; font-size:1rem; padding:20px 0;">
+        Your cart is empty. 
+        <a href="shop.html" style="color:#c0392b; font-weight:700;">Shop now →</a>
+      </p>`;
+    updateOrderSummary(0);
+    return;
+  }
+
+  cart.forEach(item => {
+    const row = document.createElement('div');
+    row.style.cssText = 'display:flex; align-items:center; gap:20px; margin-bottom:24px; padding-bottom:24px; border-bottom:1px solid #eee;';
+
+    row.innerHTML = `
+      <div style="width:180px; height:110px; background:#ccc; border-radius:4px;
+           display:flex; align-items:center; justify-content:center;
+           font-size:0.7rem; color:#555; text-align:center; flex-shrink:0; padding:8px;">
+        <!-- ADD IMAGE: <img src="${item.name.toLowerCase().replace(/ /g,'-')}.jpg"> -->
+        [ ${item.name} Image ]
+      </div>
+      <div style="flex:1;">
+        <p style="font-weight:600; margin-bottom:10px;">${item.name}</p>
+        <div style="display:flex; align-items:center; gap:12px; font-size:0.85rem; margin-bottom:8px;">
+          <span>Quantity:</span>
+          <select onchange="updateQuantity(${item.id}, this.value)"
+            style="border:1px solid #ccc; border-radius:4px; padding:2px 8px; font-size:0.85rem; cursor:pointer;">
+            ${[1,2,3,4,5,6,7,8,9,10].map(n =>
+              `<option value="${n}" ${n === item.quantity ? 'selected' : ''}>${n}</option>`
+            ).join('')}
+          </select>
+          <span onclick="removeFromCart(${item.id})"
+            style="color:#c0392b; cursor:pointer; text-decoration:underline; font-size:0.85rem;">
+            Remove
+          </span>
+        </div>
+        <p style="font-weight:700; font-size:1rem;">$${(item.price * item.quantity).toFixed(2)}</p>
+      </div>`;
+
+    container.appendChild(row);
+  });
+
+  const itemsTotal = cart.reduce((sum, i) => sum + i.price * i.quantity, 0);
+  updateOrderSummary(itemsTotal);
+}
+
+function updateOrderSummary(itemsTotal) {
+  const shipping    = itemsTotal > 0 ? SHIPPING : 0;
+  const subtotal    = itemsTotal + shipping;
+
+  const shippingEl  = document.getElementById('cart-shipping');
+  const subtotalEl  = document.getElementById('cart-subtotal');
+
+  if (shippingEl) shippingEl.textContent  = '$' + shipping.toFixed(2);
+  if (subtotalEl) subtotalEl.textContent  = '$ ' + subtotal.toFixed(2);
+}
+
+function initCartPage() {
   renderCart();
-  initPayment();
-  initContact();
-  initEffects();
+
+  // Checkout button
+  const checkoutBtn = document.querySelector('.checkout-btn');
+  if (checkoutBtn) {
+    checkoutBtn.addEventListener('click', () => {
+      const cart = getCart();
+      if (cart.length === 0) {
+        alert('🛒 Your cart is empty! Add some products before checking out.');
+      } else {
+        const confirmed = confirm('✅ Proceed to payment?\n\nYou will be redirected to the payment page.');
+        if (confirmed) window.location.href = 'payment.html';
+      }
+    });
+  }
+}
+
+
+/* ============================================================
+   PAYMENT PAGE — card form & payment methods
+   ============================================================ */
+
+function initPaymentPage() {
+  // Submit button
+  const submitBtn = document.querySelector('.pay-submit, [type="submit"]');
+  if (submitBtn) {
+    submitBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      const cardName   = document.querySelector('input[placeholder="CARD NAME"]');
+      const cardNumber = document.querySelector('input[placeholder="CARD NUMBER"]');
+      const expiry     = document.querySelector('input[placeholder="MM/YY"]');
+      const cvv        = document.querySelector('input[placeholder="CVV"]');
+
+      // Basic validation
+      if (cardName && !cardName.value.trim()) {
+        alert('⚠️ Please enter the card name.'); cardName.focus(); return;
+      }
+      if (cardNumber && cardNumber.value.replace(/\s/g,'').length < 12) {
+        alert('⚠️ Please enter a valid card number.'); cardNumber.focus(); return;
+      }
+      if (expiry && !expiry.value.trim()) {
+        alert('⚠️ Please enter the expiry date (MM/YY).'); expiry.focus(); return;
+      }
+      if (cvv && cvv.value.length < 3) {
+        alert('⚠️ Please enter a valid CVV.'); cvv.focus(); return;
+      }
+
+      // Clear cart and confirm
+      saveCart([]);
+      alert('🎉 Payment Successful!\nThank you for your purchase. Your order is confirmed!');
+      window.location.href = 'home.html';
+    });
+  }
+
+  // Payment method cards (PayPal, Visa, etc.)
+  document.querySelectorAll('.pm-card').forEach(card => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', () => {
+      const method = card.textContent.trim() || 'this method';
+      alert('💳 You selected: ' + method + '\nFill in your card details above to complete payment.');
+    });
+  });
+}
+
+
+/* ============================================================
+   CONTACT PAGE — contact form
+   ============================================================ */
+
+function initContactPage() {
+  const submitBtn = document.querySelector('.cf-submit');
+  if (submitBtn) {
+    submitBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      const name    = document.querySelector('.cf-input[type="text"]');
+      const email   = document.querySelector('.cf-input[type="email"]');
+      const message = document.querySelector('.cf-textarea');
+
+      if (name && !name.value.trim()) {
+        alert('⚠️ Please enter your name.'); name.focus(); return;
+      }
+      if (email && !email.value.includes('@')) {
+        alert('⚠️ Please enter a valid email address.'); email.focus(); return;
+      }
+      if (message && !message.value.trim()) {
+        alert('⚠️ Please leave a message before submitting.'); message.focus(); return;
+      }
+
+      alert('✅ Message sent!\nThank you, ' + (name ? name.value : '') + '. A PowerUp Batteries representative will contact you shortly.');
+
+      // Clear form
+      if (name)    name.value    = '';
+      if (email)   email.value   = '';
+      if (message) message.value = '';
+    });
+  }
+}
+
+
+/* ============================================================
+   AUTO-INIT — runs on every page
+   ============================================================ */
+
+document.addEventListener('DOMContentLoaded', () => {
+  highlightActiveNav();
+  initHomePage();
+  initShopPage();
+  initCartPage();
+  initPaymentPage();
+  initContactPage();
 });
