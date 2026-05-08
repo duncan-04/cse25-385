@@ -16,83 +16,75 @@
         <script src="script.js" defer></script>
 
     <!-- NAV -->
-   <nav>
-  <div class="nav-brand">POWERUP BATTERIES</div>
-  <a onclick="showPage('home')" id="nav-home" class="active">Home</a>
-  <a onclick="showPage('about')" id="nav-about">About Us</a>
-  <a onclick="showPage('products')" id="nav-products">Products &amp; Services</a>
-  <a onclick="showPage('technology')" id="nav-technology">Technology</a>
-  <a onclick="showPage('shop')" id="nav-shop">Shop</a>
-  <a onclick="showPage('cart')" id="nav-cart">Cart</a>
-  <a onclick="showPage('wallet')" id="nav-wallet">Wallet</a>
-  <a onclick="showPage('payment')" id="nav-payment">Payment</a>
-  <a onclick="showPage('contact')" id="nav-contact">Contact</a>
-</nav>
+<nav>  
+  <div class="nav-logo">P<span>O</span>WER<span>↑</span>P</div>
+  <ul class="nav-links">
+    <li><a href="home.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="products.html">Products &amp; Services</a></li>
+    <li><a href="technology.html">Technology</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="cart.html">Cart</a></li>
+    <li><a href="wallet.html">Wallet</a></li>
+    <li><a href="payment.html">Payment</a></li>
+    <li><a href="contact.html">Contact</a></li>
+ </nav>
+ 
 
-    <!-- ══════════════ PRODUCTS ══════════════ -->
-<div id="page-products" class="page">
-  <div class="products-hero">
-    <img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=700&q=80" alt="EV Battery" onerror="this.style.background='#8aaac8';this.style.minHeight='220px';"/>
-    <div class="products-hero-text">
-      With an extensive battery portfolio, differentiated solutions are provided to meet the diverse needs of users worldwide.
-    </div>
-  </div>
- 
-  <div class="products-intro">
-    <h2>Electronic Vehicle Battery Packs</h2>
-    <p>PowerUp Batteries, with its diverse product lineup and optimal solutions, delivers long driving range, high reliability, and quick charging in the EV market.</p>
-  </div>
- 
-  <div class="product-item">
-    <img src="https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=600&q=80" alt="Battery Electric Vehicle" onerror="this.style.background='#a8c0d8';this.style.minHeight='200px';"/>
-    <div class="product-item-text">
-      <h3>Battery Electric Vehicle</h3>
-      <p>A fully electric car.<br>Power Source: Uses battery only<br>Charging: Use a plug-in charger<br>100% electricity, No fuel</p>
-    </div>
-  </div>
- 
-  <div class="product-item">
-    <img src="https://images.unsplash.com/photo-1556742044-3c52d6e88c62?w=600&q=80" alt="Plug-in Hybrid Electric Vehicle" onerror="this.style.background='#b8cad8';this.style.minHeight='200px';"/>
-    <div class="product-item-text">
-      <h3>Plug-in Hybrid Electric Vehicle / Extended Range Electric Vehicle</h3>
-      <p>A mix of electric + fuel engine.<br>Power Source: Battery + petrol engine<br>Charging: Plug-in charger + engine can recharge battery.<br>It drives on electricity first then switches to fuel when battery is low.</p>
-    </div>
-  </div>
- 
-  <div class="product-item">
-    <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=600&q=80" alt="Hybrid Electric Vehicle" onerror="this.style.background='#c0c8d8';this.style.minHeight='200px';"/>
-    <div class="product-item-text">
-      <h3>Hybrid Electric Vehicle</h3>
-      <p>A hybrid but not a plug-in.<br>Power Source: Battery + fuel engine<br>Charging: Battery charges automatically (regenerative braking).<br>Uses both engine and battery together.</p>
-    </div>
-  </div>
- 
-  <div class="product-item">
-    <img src="https://images.unsplash.com/photo-1571992162059-4eec4cc70f57?w=600&q=80" alt="Mild Hybrid Electric Vehicle" onerror="this.style.background='#c8ccd8';this.style.minHeight='200px';"/>
-    <div class="product-item-text">
-      <h3>Mild Hybrid Electric Vehicle</h3>
-      <p>A small electric assist system.<br>Power Source: Fuel engine + small battery<br>Charging: Automatic<br>Battery helps engine and cannot drive on electricity alone.</p>
-    </div>
-  </div>
- 
-  <div class="features-bar">
-    <div class="feature-col">
-      <h4>Fast Charging Performance</h4>
-      <p style="font-size:.8rem;color:#666;">Rapid charge cycles for minimal downtime on the road.</p>
-    </div>
-    <div class="feature-col">
-      <h4>High Energy Storage</h4>
-      <p style="font-size:.8rem;color:#666;">Maximum energy density for extended range capability.</p>
-    </div>
-    <div class="feature-col">
-      <h4>Eco-Friendly Operation</h4>
-      <p style="font-size:.8rem;color:#666;">Zero-emission power solutions for a greener tomorrow.</p>
-    </div>
-  </div>
-</div>
     
-
+    
+<!-- ELECTRONIC VEHICLE BATTERY PACKS -->
+<div class="packs-section">
+  <div style="display:flex;gap:32px;margin-bottom:32px;">
+    <div style="width:45%;height:200px;background:#c0c8d0;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#666;"><img src="Images/EV Battery pack.png" height="100%" width="100%" alt="This is an image of a Battery pack.</div>
+    <div style="flex:1;display:flex;align-items:center;">
+      <p class="intro-quote">With an extensive battery portfolio, differentiated solutions are provided to meet the diverse needs of users worldwide.</p>
+    </div>
+  </div>
+ 
+  <div class="packs-header">Electronic Vehicle Battery Packs</div>
+  <div class="packs-subheader">PowerUp Batteries, with its diverse product lineup and optimal solutions, delivers long<br>driving range, high reliability, and quick charging in the EV market.</div>
+ 
+  <div class="pack-row">
+    <div style="width:42%;height:160px;background:#d0dce8;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#666;"><img src="Images/Battery Electric Vehicle.png" height="100%" width="300%" object-fit="contain;" alt="This is an EV Battery"></div>
+    <div class="pack-info">
+      <h3>Battery Electric Vehicle</h3>
+      <p>A fully electric car.<br>Power Source: Uses battery only<br>Charging: Use a plug in charger<br>100% electricity, No fuel</p>
+    </div>
+  </div>
+ 
+  <div class="pack-row">
+    <div style="width:42%;height:160px;background:#d0dce8;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#666;"><img src="Images/PEV Battery.png" height="100%" width="300%" alt="This is a picture of a PHEV Battery"></div>
+    <div class="pack-info">
+      <h3>Plug-in Hybrid Electric Vehicle / Extended Range Electric Vehicle</h3>
+      <p>A mix of electric + fuel engine.<br>Power Source: Battery + petrol engine<br>Charging: Plug in charger + engine can recharge battery<br>It drives on electricity first then switches to fuel when battery is low</p>
+    </div>
+  </div>
+ 
+  <div class="pack-row">
+    <div style="width:42%;height:160px;background:#d0dce8;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#666;"><img src="Images/HEV Battery.png" height="100%" width="300%" alt="This is a picture of an HEV Battery"></div>
+    <div class="pack-info">
+      <h3>Hybrid Electric Vehicle</h3>
+      <p>A hybrid but not a plug-in.<br>Power Source: Battery + fuel engine<br>Charging: Battery charges automatically (regenerative braking).<br>uses both engine and battery together.</p>
+    </div>
+  </div>
+ 
+  <div class="pack-row">
+    <div style="width:42%;height:160px;background:#d0dce8;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#666;"><img src="Images/MHEV Battery.png" height="100%" width="300%" alt="This is a picture of an MHEV Battery"></div>
+    <div class="pack-info">
+      <h3>Mild Hybrid Electric Vehicle</h3>
+      <p>A small electric assist system.<br>Power Source: Fuel engine + small battery<br>Charging: Automatic<br>Battery helps engine and cannot drive on electricity alone</p>
+    </div>
+  </div>
+ 
+<!-- FEATURES BAR -->
+<div class="features-bar">
+  <h3>Features of Batteries</h3>
+  <span>Fast Charging Performance</span>
+  <span>High Energy Storage</span>
+  <span>Eco-Friendly Operation</span>
+</div>
 
     </body>
 </html>
- 
+
