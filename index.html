@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PowerUp Batteries</title
 
@@ -14,116 +15,118 @@
 
 <body>
   <script src="script.js" defer></script>
-  
- <!-- NAV -->
+ 
+<!-- NAV -->
 <nav>
-  <div class="nav-brand">POWERUP BATTERIES</div>
-  <li><a onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
-  <li><a onclick="showPage('about')" id="nav-about">About Us</a></li>
-  <li><a onclick="showPage('products')" id="nav-products">Products &amp; Services</a></li>
-  <li><a onclick="showPage('technology')" id="nav-technology">Technology</a></li>
-  <li><a onclick="showPage('shop')" id="nav-shop">Shop</a></li>
-  <li><a onclick="showPage('cart')" id="nav-cart">Cart</a></li>
-  <li><a onclick="showPage('wallet')" id="nav-wallet">Wallet</a></li>
-  <li><a onclick="showPage('payment')" id="nav-payment">Payment</a></li>
-  <li><a onclick="showPage('contact')" id="nav-contact">Contact</a></li>
+  <ul>
+  <div class="nav-logo">P<span>O</span>WER<span>↑</span>P</div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="products.html">Products &amp; Services</a></li>
+    <li><a href="technology.html">Technology</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="cart.html">Cart</a></li>
+    <li><a href="wallet.html">Wallet</a></li>
+    <li><a href="payment.html">Payment</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
 </nav>
+ 
+<!-- NEXT-GEN EV BATTERIES -->
+<div class="hero-block">
+  <div class="section-label">Next-Gen EV Batteries</div>
+  <div style="width:100%;max-width:500px;height:200px;margin:0 auto;background:#e0e0e0;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#888;"><img src="Images/Electric car products.png"
+                    height="100%" width="100%" alt="This is a picture of an Electric Vehicle with fitted battery">
+                    
+</div>
+</div>
+ 
+<!-- LITHIUM POWER PACKS -->
+<div class="hero-block">
+  <div class="section-label">Lithium Power Packs</div>
+  <div style="width:100%;max-width:500px;height:180px;margin:0 auto;background:#1a1a1a;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#555;"><img src="Images/Lithium ion Battery.png" height="100%" width="100%" alt="This is a picture of a Lithium ion battery pack">
   
-<!-- ══════════════ HOME ══════════════ -->
-<div id="page-home" class="page active">
- 
-  <!-- Hero: Next-Gen EV Batteries -->
-  <div class="home-section">
-    <h2>Next-Gen EV Batteries</h2>
-    <div class="hero-img-wrap">
-      <img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=800&q=80" alt="EV Battery System" onerror="this.style.background='linear-gradient(135deg,#c0cfd8,#8faab8)';this.style.height='260px';"/>
-    </div>
   </div>
+</div>
  
-  <!-- Hero: Lithium Power Packs -->
-  <div class="home-section">
-    <h2>Lithium Power Packs</h2>
-    <div class="hero-img-wrap">
-      <img src="https://images.unsplash.com/photo-1571992162059-4eec4cc70f57?w=800&q=80" alt="Lithium Battery Packs" onerror="this.style.background='linear-gradient(135deg,#2a2a2a,#555)';this.style.height='220px';"/>
-    </div>
-  </div>
- 
-  <!-- Video placeholder -->
-  <div class="home-section" style="padding-top:0;">
-    <div class="video-placeholder" onclick="alert('Video player coming soon!')">
-      <div class="play-btn">
-        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-      </div>
-    </div>
-  </div>
- 
-  <!-- Hero: Fast Charging -->
-  <div class="home-section">
-    <h2>Fast Charging Technology</h2>
-    <div class="hero-img-wrap">
-      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Fast Charging" onerror="this.style.background='linear-gradient(135deg,#5a8a6a,#2a5a3a)';this.style.height='220px';"/>
-    </div>
-  </div>
- 
-  <!-- Why Choose -->
-  <div class="why-choose">
-    <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80" alt="Battery Lab" class="why-choose-img" onerror="this.style.background='#8a9aaa';"/>
-    <div class="why-choose-text">
-      <h3>Why Choose PowerUp Batteries?</h3>
-      <p>PowerUp Batteries aims to power electric vehicles with powerful lithium-ion batteries that contain very high energy.</p>
-    </div>
-  </div>
- 
-  <!-- What We Offer -->
-  <div class="offer-section">
-    <h2>What We<br>Offer</h2>
-    <div class="offer-grid">
-      <div class="offer-card">
-        <img src="https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?w=400&q=80" alt="Maintenance" onerror="this.style.background='#2a4a3a';this.style.minHeight='180px';display='block';"/>
-        <div class="offer-card-label">
-          Maintenance
-          <p>Regular check-ups to maintain your EV battery's high performance</p>
-        </div>
-      </div>
-      <div class="offer-card">
-        <img src="https://images.unsplash.com/photo-1581092160607-ee22731c9c38?w=400&q=80" alt="Repair" onerror="this.style.background='#3a2a2a';this.style.minHeight='180px';"/>
-        <div class="offer-card-label">
-          Repair
-          <p>Quality service that guarantees smooth and safe rides</p>
-        </div>
-      </div>
-      <div class="offer-card">
-        <img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=400&q=80" alt="Parts" onerror="this.style.background='#2a3a4a';this.style.minHeight='180px';"/>
-        <div class="offer-card-label">
-          Parts &amp; Accessories
-          <p>Factory parts and premium accessories for international clients</p>
-        </div>
-      </div>
-    </div>
-  </div>
- 
-  <!-- EV Battery Types -->
-  <div class="ev-types">
-    <h2>Types of Electronic Vehicle Batteries</h2>
- 
-    <div class="ev-type-item">
-      <div>
-        <h4>Lithium-ion</h4>
-        <p>PowerUp Batteries supplies advanced lithium-ion batteries to global automotive manufacturers. We are the #1 li-ion battery supplier in the global market for hybrid, plug-in hybrid, and full-electric vehicles. Our advanced technology is designed to provide improved energy density, lower costs, and improved driving range — all intended to reduce the vehicle's environmental impact.</p>
-      </div>
-      <img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=600&q=80" alt="Lithium-ion battery" onerror="this.style.background='#c0cfd8';this.style.minHeight='200px';"/>
-    </div>
- 
-    <div class="ev-type-item">
-      <div>
-        <h4>Nickel Metal Hydride</h4>
-        <p>PowerUp Batteries began developing Ni-MH battery cells for HEVs in 2020, and started mass production in 2025. Our battery cells are designed to be durable and to maintain a high charging and discharging capacity over an extended period of time. We employ unique battery manufacturing technologies, including polar plate sintering technology.</p>
-      </div>
-      <img src="https://images.unsplash.com/photo-1618914240462-27ebef8ee880?w=600&q=80" alt="NiMH battery" onerror="this.style.background='#c8d8c0';this.style.minHeight='200px';"/>
+<!-- VIDEO PLACEHOLDER -->
+<div class="hero-block">
+  <div class="video-placeholder">
+    <div class="play-btn"></div>
+    <div class="video-bar">
+      <span class="vb-dot"></span>
+      <span class="vb-line"></span>
+      <span class="vb-time">◀ ▶</span>
     </div>
   </div>
 </div>
  
-  </body>
-</html>
+<!-- FAST CHARGING TECHNOLOGY -->
+<div class="hero-block">
+  <div class="section-label">Fast Charging Technology</div>
+  <div style="width:100%;max-width:500px;height:180px;margin:0 auto;background:#b0c8d8;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#555;"><img src="Images/Fast Charging Technology.png" height="100%" width="100%" alt="This is a picture of a charging vehicle">
+  
+  </div>
+  </div>
  
+<!-- WHY CHOOSE POWERUP -->
+<div class="why-section">
+  <div style="width:45%;min-width:200px;height:220px;background:#444;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#999;"><img src="Images/powerup batteries image.png" height="100%" width="100%" alt="This is a picture of an EV Battery"></div>
+  <div class="why-text">
+    <h2>Why Choose PowerUp Batteries?</h2>
+    <p>PowerUp Batteries aims to power electric vehicles with powerful lithium-ion batteries that contain very high energy.</p>
+  
+  </div>
+</div>
+ 
+<!-- WHAT WE OFFER -->
+<div class="offer-section">
+  <h2>What We<br>Offer</h2>
+  <div class="offer-grid">
+    <div class="offer-card">
+      <div style="height:200px;background:#c0392b;display:flex;align-items:center;justify-content:center;color:#fff;"><img src="Images/Maintenance picture.png" alt="This is an image of a maintenance plan"></div>
+      <div class="offer-card-label">
+        <strong>Maintenance</strong>
+        <p>Regular checkups to maintain your car battery's high performance</p>
+      </div>
+    </div>
+    <div class="offer-card">
+      <div style="height:200px;background:#555;display:flex;align-items:center;justify-content:center;color:#fff;"><img src="Images/Repair Service.png" alt="This is a picture of a repair service plan"></div>
+      <div class="offer-card-label">
+        <strong>Repair</strong>
+        <p>Quality service that guarantees smooth and safe rides</p>
+      </div>
+    </div>
+    <div class="offer-card">
+      <div style="height:200px;background:#888;display:flex;align-items:center;justify-content:center;color:#fff;"><img src="Images/Parts and accessories.png" alt="This is a picture of parts and accessories"></div>
+      <div class="offer-card-label">
+        <strong>Parts/Accessories</strong>
+        <p>Interior parts and premium exteriors for standout style</p>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<!-- TYPES OF ELECTRONIC VEHICLE BATTERIES -->
+<div class="battery-types">
+  <h2>Types of<br>Electronic<br>Vehicle<br>Batteries</h2>
+  <div class="battery-layout">
+    <div class="battery-text">
+      <h3>Lithium-ion</h3>
+      <p>PowerUp Batteries supplies advanced lithium-ion batteries to a number of global automotive manufacturers and is #1 li-ion battery supplier in the global market for hybrid, plug-in hybrid, and full-electric vehicles. PowerUp's advanced Lithium-ion battery technology is designed to provide improved energy density, lower costs, and improved driving range, all intended to reduce the vehicle's environmental impact.</p>
+    </div>
+    <div class="battery-img-col">
+      <div style="width:200%;max-width:340px;height:250px;background:#c0c0c0;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#666;"><img src="Images/Li-ion Battery.png" height=100%  alt="This is a picture of a lithium ion battery"</div>
+    </div>
+  </div>
+</div>
+ 
+<div class="nimh-section">
+  <h3>Nickel Metal Hydride</h3>
+  <p>PowerUp Batteries began developing Ni-MH battery cells for HEVs in 2020, and started mass production in 2025. Our battery cells are designed to be durable and to maintain a high charging and discharging capacity over an extended period of time. Additionally, we employ unique battery manufacturing technologies, including polar plate sintering technology.</p>
+</div>
+    
+</body>
+</html>
+
