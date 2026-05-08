@@ -17,36 +17,35 @@
  
 <!-- NAV -->
 <nav>
-  <div class="nav-brand">POWERUP BATTERIES</div>
-  <a onclick="showPage('home')" id="nav-home" class="active">Home</a>
-  <a onclick="showPage('about')" id="nav-about">About Us</a>
-  <a onclick="showPage('products')" id="nav-products">Products &amp; Services</a>
-  <a onclick="showPage('technology')" id="nav-technology">Technology</a>
-  <a onclick="showPage('shop')" id="nav-shop">Shop</a>
-  <a onclick="showPage('cart')" id="nav-cart">Cart</a>
-  <a onclick="showPage('wallet')" id="nav-wallet">Wallet</a>
-  <a onclick="showPage('payment')" id="nav-payment">Payment</a>
-  <a onclick="showPage('contact')" id="nav-contact">Contact</a>
+  <div class="nav-logo">P<span>O</span>WER<span>↑</span>P</div>
+  <ul class="nav-links">
+    <li><a href="home.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="products.html">Products &amp; Services</a></li>
+    <li><a href="technology.html">Technology</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="cart.html">Cart</a></li>
+    <li><a href="wallet.html">Wallet</a></li>
+    <li><a href="payment.html">Payment</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
 </nav>
 
-<!-- ══════════════ WALLET ══════════════ -->
-<div id="page-wallet" class="page wallet-page">
-  <div class="wallet-inner">
-    <h1>Add Card</h1>
-    <div class="wallet-field">
-      <input type="text" placeholder="Card Name" id="w-name" maxlength="40"/>
-    </div>
-    <div class="wallet-field">
-      <input type="text" placeholder="Card Number" id="w-number" maxlength="19" oninput="formatCard(this)"/>
-    </div>
-    <div class="wallet-row">
-      <input type="text" placeholder="MM/YY" id="w-expiry" maxlength="5" oninput="formatExpiry(this)"/>
-      <input type="text" placeholder="CVV" id="w-cvv" maxlength="4" oninput="this.value=this.value.replace(/\D/g,'')"/>
-    </div>
-    <button class="wallet-submit" onclick="saveCard()">Submit &#8594;</button>
-  </div>
-</div>
 
+<!-- PAYMENT FORM -->
+<div class="payment-section">
+  <h2>Add Card</h2>
+  <div style="align-self:flex-start;max-width:500px;width:100%;">
+    <div style="color:#ccc;font-size:0.9rem;font-weight:600;margin-bottom:8px;"></div>
+  </div>
+  <input class="pay-input" type="text" placeholder="CARD NAME" />
+  <input class="pay-input" type="text" placeholder="CARD NUMBER" />
+  <div class="pay-row">
+    <input class="pay-input" type="text" placeholder="MM/YY" />
+    <input class="pay-input" type="text" placeholder="CVV" />
+  </div>
+  <button class="pay-submit">Submit →</button>
+</div>
 
 </body>
 </html>
