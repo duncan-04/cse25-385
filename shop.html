@@ -6,410 +6,130 @@
   <title>PowerUp Batteries – Shop</title>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'Barlow', sans-serif;
-      background: #fff;
-      color: #111;
-    }
-
-    /* ── NAV ── */
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 32px;
-      background: #fff;
-      border-bottom: 1px solid #e5e5e5;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .nav-logo {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 800;
-      font-size: 1.3rem;
-      letter-spacing: 1px;
-      color: #111;
-      text-decoration: none;
-    }
-    .nav-logo span { color: #c0392b; }
-
-    .nav-links {
-      display: flex;
-      gap: 22px;
-      list-style: none;
-    }
-    .nav-links a {
-      text-decoration: none;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: #111;
-    }
-    .nav-links a:hover { color: #c0392b; }
-    .nav-links a.active { color: #c0392b; }
-
-    /* ── HERO ── */
-    .hero {
-      background: #000;
-      padding: 24px 32px 0;
-    }
-    .hero h1 {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 800;
-      font-size: 2rem;
-      color: #fff;
-      letter-spacing: 1px;
-      margin-bottom: 16px;
-    }
-    .hero-img-box {
-      width: 100%;
-      max-width: 520px;
-      height: 220px;
-      margin: 0 auto;
-      background: #1a1a1a;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 4px;
-      overflow: hidden;
-    }
-    .hero-img-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    /* placeholder label shown when no image */
-    .img-placeholder {
-      color: #555;
-      font-size: 0.75rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      text-align: center;
-      padding: 12px;
-    }
-
-    /* ── PRODUCTS SECTION ── */
-    .products-section {
-      background: linear-gradient(180deg, #b8d4e0 0%, #c8dde8 35%, #cce4d0 70%, #dde8c0 100%);
-      padding: 28px 32px 40px;
-    }
-
-    .section-label {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 800;
-      font-size: 0.85rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #111;
-      margin-bottom: 20px;
-    }
-
-    /* Each product row */
-    .product-card {
-      display: flex;
-      align-items: center;
-      gap: 0;
-      margin-bottom: 24px;
-      background: transparent;
-    }
-
-    .product-card .prod-img-box {
-      width: 240px;
-      height: 150px;
-      flex-shrink: 0;
-      background: #c0c8d0;
-      border-radius: 4px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .product-card .prod-img-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .product-card .product-info {
-      flex: 1;
-      padding-left: 32px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
-    }
-
-    .product-card .product-info h3 {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 800;
-      font-size: 0.9rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #111;
-    }
-
-    .product-card .shop-btn {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 0.72rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #111;
-      text-decoration: none;
-      border-bottom: 1px solid #111;
-      cursor: pointer;
-      background: none;
-      border-top: none;
-      border-left: none;
-      border-right: none;
-      padding: 0 0 2px;
-    }
-    .product-card .shop-btn:hover { color: #c0392b; border-color: #c0392b; }
-
-    /* ── CATEGORY SECTION ── */
-    .category-section {
-      padding: 48px 32px 56px;
-      background: #fff;
-      text-align: center;
-    }
-
-    .category-section h2 {
-      font-family: 'Barlow', sans-serif;
-      font-weight: 400;
-      font-size: 1.2rem;
-      color: #111;
-      margin-bottom: 28px;
-      letter-spacing: 0.5px;
-    }
-
-    .category-grid {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-bottom: 28px;
-    }
-
-    .category-card {
-      width: 170px;
-      text-align: center;
-    }
-
-    .category-card .cat-img-box {
-      width: 100%;
-      height: 115px;
-      background: #c8c8c8;
-      border-radius: 4px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 10px;
-    }
-    /* middle card has a red accent like the design */
-    .category-card:nth-child(2) .cat-img-box { background: #c0392b; }
-
-    .category-card .cat-img-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .category-card h4 {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 800;
-      font-size: 0.72rem;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: #111;
-      margin-bottom: 5px;
-    }
-
-    .category-card p {
-      font-size: 0.68rem;
-      color: #444;
-      line-height: 1.4;
-    }
-
-    .shop-all-btn {
-      display: inline-block;
-      margin-top: 4px;
-      padding: 6px 20px;
-      border: 1px solid #111;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 0.72rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: #111;
-      cursor: pointer;
-      background: none;
-    }
-    .shop-all-btn:hover { background: #111; color: #fff; }
-  </style>
 </head>
-<body>
+
+  <body>
   <script src="script.js" defer></script>
 
   <!-- NAV -->
   <nav>
-    <a class="nav-logo" href="home.html">P<span>O</span>WER<span>↑</span>P</a>
-    <ul class="nav-links">
-      <li><a href="home.html">Home</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="products.html">Products &amp; Services</a></li>
-      <li><a href="technology.html">Technology</a></li>
-      <li><a href="shop.html" class="active">Shop</a></li>
-      <li><a href="cart.html">Cart</a></li>
-      <li><a href="wallet.html">Wallet</a></li>
-      <li><a href="payment.html">Payment</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
+  <a class="nav-logo" href="home.html">P<span>O</span>WER<span>↑</span>P</a>
+  <a onclick="showPage('home')" id="nav-home" class="active">Home</a>
+  <a onclick="showPage('about')" id="nav-about">About Us</a>
+  <a onclick="showPage('products')" id="nav-products">Products &amp; Services</a>
+  <a onclick="showPage('technology')" id="nav-technology">Technology</a>
+  <a onclick="showPage('shop')" id="nav-shop">Shop</a>
+  <a onclick="showPage('cart')" id="nav-cart">Cart</a>
+  <a onclick="showPage('wallet')" id="nav-wallet">Wallet</a>
+  <a onclick="showPage('payment')" id="nav-payment">Payment</a>
+  <a onclick="showPage('contact')" id="nav-contact">Contact</a>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero">
+  <!-- ══════════════ SHOP ══════════════ -->
+<div id="page-shop" class="page">
+  <div class="shop-hero">
     <h1>Shop Now</h1>
-    <div class="hero-img-box">
-      <!-- ADD HERO IMAGE HERE: src="your-ev-hero-image.jpg" -->
-      <img src="Images/Shop Now vehicle.png" height="100%" width="100%" alt="EV Battery Platform"
-           onerror="this.style.display='none'"/>
-      <p class="img-placeholder">[HERO EV IMAGE GOES HERE]</p>
+    <p>Trusted batteries and charging solutions for every EV</p>
+    <div class="shop-hero-decoration">
+      <img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=600&q=80" alt="" onerror="this.style.display='none';"/>
     </div>
-  </section>
-
-  <!-- PRODUCT LISTINGS -->
-  <section class="products-section">
-    <p class="section-label">Trusted Sellers</p>
-
-    <!-- 1. Lithium Ion Battery -->
-    <div class="product-card">
-      <div class="prod-img-box">
-        <!-- ADD IMAGE: src="lithium-ion-battery.jpg" -->
-        <img src="Images/Lithium-Ion Battery.png" height="100%" width="100%" alt="Lithium Ion Battery" onerror="this.style.display='none'"/>
-        <span class="img-placeholder">[ Lithium Ion Battery Image ]</span>
+  </div>
+ 
+  <div class="shop-section">
+    <h2>Trusted Sellers</h2>
+    <div class="shop-list" id="shop-list">
+ 
+      <div class="shop-item">
+        <img src="https://images.unsplash.com/photo-1614624532983-4ce03382d63d?w=400&q=80" alt="Lithium Ion Battery" onerror="this.style.background='#8aaac8';"/>
+        <div class="shop-item-info">
+          <h3>Lithium Ion Battery</h3>
+          <p>High-density li-ion pack for BEV and PHEV vehicles</p>
+          <p style="margin-top:8px;font-weight:700;font-size:.9rem;">$2,499.00</p>
+        </div>
+        <button class="shop-btn" onclick="addToCart('Lithium Ion Battery', 2499)">Shop Now</button>
       </div>
-      <div class="product-info">
-        <h3>Lithium Ion Battery</h3>
-        <button class="shop-btn" onclick="addToCart(1)">Shop Now</button>
+ 
+      <div class="shop-item">
+        <img src="https://images.unsplash.com/photo-1571992162059-4eec4cc70f57?w=400&q=80" alt="Nickel Battery" onerror="this.style.background='#a8c0a8';"/>
+        <div class="shop-item-info">
+          <h3>Nickel Battery</h3>
+          <p>Durable Ni-MH pack for hybrid electric vehicles</p>
+          <p style="margin-top:8px;font-weight:700;font-size:.9rem;">$1,899.00</p>
+        </div>
+        <button class="shop-btn" onclick="addToCart('Nickel Battery', 1899)">Shop Now</button>
       </div>
+ 
+      <div class="shop-item">
+        <img src="https://images.unsplash.com/photo-1555664424-778a1e5e1b48?w=400&q=80" alt="Hybrid Battery Pack" onerror="this.style.background='#c0a888';"/>
+        <div class="shop-item-info">
+          <h3>Hybrid Battery Pack</h3>
+          <p>Optimised pack for plug-in hybrid applications</p>
+          <p style="margin-top:8px;font-weight:700;font-size:.9rem;">$3,199.00</p>
+        </div>
+        <button class="shop-btn" onclick="addToCart('Hybrid Battery Pack', 3199)">Shop Now</button>
+      </div>
+ 
+      <div class="shop-item">
+        <img src="https://images.unsplash.com/photo-1581092921461-39b9d08a9b21?w=400&q=80" alt="Mild Hybrid Battery" onerror="this.style.background='#a8c0d0';"/>
+        <div class="shop-item-info">
+          <h3>Mild Hybrid Battery</h3>
+          <p>Compact assist battery for MHEV powertrains</p>
+          <p style="margin-top:8px;font-weight:700;font-size:.9rem;">$899.00</p>
+        </div>
+        <button class="shop-btn" onclick="addToCart('Mild Hybrid Battery', 899)">Shop Now</button>
+      </div>
+ 
+      <div class="shop-item">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="Portable Charging Station" onerror="this.style.background='#c8d8c0';"/>
+        <div class="shop-item-info">
+          <h3>Portable Charging Stations</h3>
+          <p>Take fast charging anywhere with our portable units</p>
+          <p style="margin-top:8px;font-weight:700;font-size:.9rem;">$649.00</p>
+        </div>
+        <button class="shop-btn" onclick="addToCart('Portable Charging Station', 649)">Shop Now</button>
+      </div>
+ 
+      <div class="shop-item">
+        <img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=400&q=80" alt="EV Cable Charger" onerror="this.style.background='#d0c8b8';"/>
+        <div class="shop-item-info">
+          <h3>Portable EV Cable Charger</h3>
+          <p>Universal cable charger compatible with all major EV brands</p>
+          <p style="margin-top:8px;font-weight:700;font-size:.9rem;">$249.00</p>
+        </div>
+        <button class="shop-btn" onclick="addToCart('Portable EV Cable Charger', 249)">Shop Now</button>
+      </div>
+ 
     </div>
-
-    <!-- 2. Nickel Battery -->
-    <div class="product-card">
-      <div class="prod-img-box">
-        <!-- ADD IMAGE: src="nickel-battery.jpg" -->
-        <img src="Images/Nickel Battery- shop now.png" height=100% width=100% alt="Nickel Battery Image" onerror="this.style.display='none'"/>
-        <span class="img-placeholder">[ Nickel Battery Image ]</span>
-      </div>
-      <div class="product-info">
-        <h3>Nickel Battery</h3>
-        <button class="shop-btn" onclick="addToCart(2)">Shop Now</button>
-      </div>
-    </div>
-
-    <!-- 3. Hybrid Battery Pack -->
-    <div class="product-card">
-      <div class="prod-img-box">
-        <!-- ADD IMAGE: src="hybrid-battery-pack.jpg" -->
-        <img src="Images/Hybrid Battery Pack-shop now.png" height=100% width=100% alt="Hybrid Battery Pack" onerror="this.style.display='none'"/>
-        <span class="img-placeholder">[ Hybrid Battery Pack Image ]</span>
-      </div>
-      <div class="product-info">
-        <h3>Hybrid Battery Pack</h3>
-        <button class="shop-btn" onclick="addToCart(3)">Shop Now</button>
-      </div>
-    </div>
-
-    <!-- 4. Mild Hybrid Battery -->
-    <div class="product-card">
-      <div class="prod-img-box">
-        <!-- ADD IMAGE: src="mild-hybrid-battery.jpg" -->
-        <img src="Images/Mild Hybrid Battery Pack-shop now.png" height=100% width=100% alt="Mild Hybrid Battery" onerror="this.style.display='none'"/>
-        <span class="img-placeholder">[ Mild Hybrid Battery Image ]</span>
-      </div>
-      <div class="product-info">
-        <h3>Mild Hybrid Battery</h3>
-        <button class="shop-btn" onclick="addToCart(4)">Shop Now</button>
-      </div>
-    </div>
-
-    <!-- 5. Portable Charging Stations -->
-    <div class="product-card">
-      <div class="prod-img-box">
-        <!-- ADD IMAGE: src="portable-charging-station.jpg" -->
-        <img src="Images/Portable Charging Stations-shop now.png" height=100% width=100% alt="Portable Charging Stations" onerror="this.style.display='none'"/>
-        <span class="img-placeholder">[ Portable Charging Station Image ]</span>
-      </div>
-      <div class="product-info">
-        <h3>Portable Charging Stations</h3>
-        <button class="shop-btn" onclick="addToCart(5)">Shop Now</button>
-      </div>
-    </div>
-
-    <!-- 6. Portable EV Cable Charger -->
-    <div class="product-card">
-      <div class="prod-img-box">
-        <!-- ADD IMAGE: src="ev-cable-charger.jpg" -->
-        <img src="Images/Portable Electronic Vehicle Cable charger-shop now.png" height=100% width=100% alt="Portable Electronic Vehicle Cable Charger" onerror="this.style.display='none'"/>
-        <span class="img-placeholder">[ EV Cable Charger Image ]</span>
-      </div>
-      <div class="product-info">
-        <h3>Portable Electronic Vehicle<br/>Cable Charger</h3>
-        <button class="shop-btn" onclick="addToCart(6)">Shop Now</button>
-      </div>
-    </div>
-
-  </section>
-
-  <!-- SHOP BY CATEGORY -->
-  <section class="category-section">
+  </div>
+ 
+  <div class="shop-categories">
     <h2>Shop by category</h2>
-
-    <div class="category-grid">
-
-      <div class="category-card">
-        <div class="cat-img-box">
-          <!-- ADD IMAGE: src="battery-packs-category.jpg" -->
-          <img src="Images/Battery packs-shop all.png" alt="Battery Packs" onerror="this.style.display='none'"/>
-          <span class="img-placeholder">[ Battery Packs ]</span>
+    <div class="cat-grid">
+      <div class="cat-card">
+        <img src="https://images.unsplash.com/photo-1614624532983-4ce03382d63d?w=400&q=80" alt="Battery Packs" onerror="this.style.background='#8aaac8';this.style.display='block';"/>
+        <div class="cat-card-body">
+          <h4>Battery Packs</h4>
+          <p>High class, high quality car batteries at affordable prices.</p>
         </div>
-        <h4>Battery Packs</h4>
-        <p>High class, high quality car batteries at affordable prices</p>
       </div>
-
-      <div class="category-card">
-        <div class="cat-img-box">
-          <!-- ADD IMAGE: src="portable-charging-category.jpg" -->
-          <img src="Images/Portable Charging station-shop all.png" alt="Portable Charging Stations" onerror="this.style.display='none'"/>
-          <span class="img-placeholder">[ Portable Charging Stations ]</span>
+      <div class="cat-card">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="Portable Charging Stations" onerror="this.style.background='#c8d8c0';this.style.display='block';"/>
+        <div class="cat-card-body">
+          <h4>Portable Charging Stations</h4>
+          <p>Convenient charging systems at your disposal.</p>
         </div>
-        <h4>Portable Charging Stations</h4>
-        <p>Convenient charging systems at your disposal</p>
       </div>
-
-      <div class="category-card">
-        <div class="cat-img-box">
-          <!-- ADD IMAGE: src="charging-cables-category.jpg" -->
-          <img src="Images/Charging-cables.png" alt="Charging Cables" onerror="this.style.display='none'"/>
-          <span class="img-placeholder">[ Charging Cables ]</span>
+      <div class="cat-card">
+        <img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=400&q=80" alt="Charging Cables" onerror="this.style.background='#d0c8b8';this.style.display='block';"/>
+        <div class="cat-card-body">
+          <h4>Charging Cables</h4>
+          <p>Essential charging cables that support fast charging.</p>
         </div>
-        <h4>Charging Cables</h4>
-        <p>Essential charging cables that support fast charging</p>
       </div>
-
     </div>
-
-    <a href="#" class="shop-all-btn">Shop All</a>
-  </section>
-
-
+    <button class="shop-all-btn" onclick="showPage('shop')">Shop All</button>
+  </div>
+</div>
 
 </body>
 </html>
