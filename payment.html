@@ -5,335 +5,61 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Supported Payment Methods</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: #f0f2f5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 24px;
-  }
-
-  .payment-card {
-    background: #ffffff;
-    border-radius: 20px;
-    padding: 28px 28px 24px;
-    width: 100%;
-    max-width: 580px;
-    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
-  }
-
-  .payment-card h2 {
-    text-align: center;
-    font-size: 15px;
-    font-weight: 600;
-    color: #111827;
-    margin-bottom: 22px;
-    letter-spacing: 0.01em;
-  }
-
-  /* ── Row ── */
-  .payment-row {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 16px 0;
-    border-top: 1px solid #f0f0f0;
-  }
-
-  .payment-row:last-child {
-    padding-bottom: 0;
-  }
-
-  .row-label {
-    font-size: 13px;
-    font-weight: 500;
-    color: #9ca3af;
-    min-width: 108px;
-    flex-shrink: 0;
-  }
-
-  .logos {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    flex-wrap: wrap;
-    flex: 1;
-  }
-
-  /* ══════════════════════════════
-     CREDIT CARDS
-  ══════════════════════════════ */
-
-  /* Mastercard */
-  .mastercard {
-    display: flex;
-    align-items: center;
-  }
-  .mc-circle {
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-  }
-  .mc-red    { background: #eb001b; }
-  .mc-orange { background: #f79e1b; margin-left: -10px; }
-
-  /* Visa */
-  .visa-logo {
-    font-size: 19px;
-    font-weight: 800;
-    color: #1a1f71;
-    letter-spacing: -0.5px;
-    font-style: italic;
-  }
-
-  /* Discover */
-  .discover-wrap {
-    display: flex;
-    align-items: center;
-    gap: 0;
-  }
-  .discover-text {
-    font-size: 12px;
-    font-weight: 800;
-    color: #231f20;
-    letter-spacing: 1.8px;
-    text-transform: uppercase;
-  }
-  .discover-dot {
-    width: 14px;
-    height: 14px;
-    background: #f76f20;
-    border-radius: 50%;
-    margin-left: 3px;
-  }
-
-  /* Amex */
-  .amex-badge {
-    background: #007bc1;
-    color: #fff;
-    font-size: 10px;
-    font-weight: 700;
-    padding: 4px 8px;
-    border-radius: 5px;
-    letter-spacing: 0.6px;
-  }
-
-  /* ══════════════════════════════
-     DIGITAL WALLET
-  ══════════════════════════════ */
-
-  /* Apple Pay */
-  .apple-pay {
-    display: flex;
-    align-items: center;
-    gap: 3px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #111;
-  }
-  .apple-icon {
-    font-size: 18px;
-    line-height: 1;
-  }
-
-  /* Google Pay */
-  .gpay {
-    display: flex;
-    align-items: center;
-    font-size: 15px;
-    font-weight: 600;
-    gap: 1px;
-  }
-  .gpay .G { color: #4285f4; }
-  .gpay .o { color: #ea4335; }
-  .gpay .o2{ color: #fbbc05; }
-  .gpay .g2{ color: #34a853; }
-  .gpay .l { color: #ea4335; }
-  .gpay .e { color: #34a853; }
-  .gpay .pay{ color: #5f6368; margin-left: 3px; }
-
-  /* Alipay */
-  .alipay-icon {
-    width: 28px;
-    height: 28px;
-    background: #1677ff;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size: 13px;
-    font-weight: 700;
-  }
-
-  /* WeChat Pay */
-  .wechat-icon {
-    width: 28px;
-    height: 28px;
-    background: #07c160;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size: 15px;
-    font-weight: 700;
-  }
-
-  /* ══════════════════════════════
-     CRYPTO + PAYPAL ROW
-  ══════════════════════════════ */
-
-  .crypto-paypal-row {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 16px 0 0;
-    border-top: 1px solid #f0f0f0;
-  }
-
-  .crypto-logos {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex: 1;
-  }
-
-  /* Coin base */
-  .coin {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size: 13px;
-    font-weight: 700;
-  }
-  .coin-tether  { background: #26a17b; }
-  .coin-btc     { background: #f7931a; }
-  .coin-eth     { background: #627eea; }
-
-  .crypto-count {
-    font-size: 14px;
-    font-weight: 700;
-    color: #374151;
-  }
-
-  /* PayPal */
-  .paypal-badge {
-    background: #fff;
-    border: 1.5px solid #e5e7eb;
-    border-radius: 14px;
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    gap: 2px;
-    flex-shrink: 0;
-  }
-  .pp-P1   { color: #003087; font-size: 22px; font-weight: 800; }
-  .pp-P2   { color: #009cde; font-size: 22px; font-weight: 800; }
-  .pp-word {
-    display: flex;
-    align-items: baseline;
-    gap: 0;
-    margin-left: 4px;
-  }
-  .pp-pay  { color: #003087; font-size: 18px; font-weight: 700; }
-  .pp-pal  { color: #009cde; font-size: 18px; font-weight: 700; }
-</style>
 </head>
 <body>
 
-<div class="payment-card">
-  <h2>Supported Payment Methods</h2>
-
-  <!-- ── Credit Cards ── -->
-  <div class="payment-row">
-    <span class="row-label">Credit Cards</span>
-    <div class="logos">
-
-      <!-- Mastercard -->
-      <div class="mastercard">
-        <div class="mc-circle mc-red"></div>
-        <div class="mc-circle mc-orange"></div>
+  <!--NAVIGATION-->
+ <nav>
+  <div class="nav-brand">POWERUP BATTERIES</div>
+  <a onclick="showPage('home')" id="nav-home" class="active">Home</a>
+  <a onclick="showPage('about')" id="nav-about">About Us</a>
+  <a onclick="showPage('products')" id="nav-products">Products &amp; Services</a>
+  <a onclick="showPage('technology')" id="nav-technology">Technology</a>
+  <a onclick="showPage('shop')" id="nav-shop">Shop</a>
+  <a onclick="showPage('cart')" id="nav-cart">Cart</a>
+  <a onclick="showPage('wallet')" id="nav-wallet">Wallet</a>
+  <a onclick="showPage('payment')" id="nav-payment">Payment</a>
+  <a onclick="showPage('contact')" id="nav-contact">Contact</a>
+</nav>
+ 
+<!-- ══════════════ PAYMENT ══════════════ -->
+<div id="page-payment" class="page payment-page">
+  <div class="payment-inner">
+    <h1>Supported Payment Methods</h1>
+ 
+    <div class="payment-group">
+      <h3>Credit Cards</h3>
+      <div class="payment-logos">
+        <div class="logo-mc"></div>
+        <div class="logo-visa">VISA</div>
+        <div class="logo-discover">DISCOVER</div>
+        <div class="logo-amex">AMEX</div>
       </div>
-
-      <!-- Visa -->
-      <span class="visa-logo">VISA</span>
-
-      <!-- Discover -->
-      <div class="discover-wrap">
-        <span class="discover-text">DISCOVER</span>
-        <div class="discover-dot"></div>
+    </div>
+ 
+    <div class="payment-group">
+      <h3>Digital Wallet</h3>
+      <div class="payment-logos">
+        <div class="logo-apple">&#xf8ff; Pay</div>
+        <div class="logo-gpay"><span>G</span><span>o</span><span>o</span><span>g</span>le Pay</div>
+        <div class="logo-alipay">&#x652F;&#x4ED8;&#x5B9D;</div>
+        <div style="font-size:1.2rem;">&#x2705;</div>
       </div>
-
-      <!-- Amex -->
-      <span class="amex-badge">AMEX</span>
-
+    </div>
+ 
+    <div class="payment-group">
+      <h3>Cryptocurrencies</h3>
+      <div class="payment-logos">
+        <div class="logo-tether">&#x20AE; USDT</div>
+        <div class="logo-btc">&#x20BF;</div>
+        <div class="logo-eth">&#x25C6;</div>
+        <div class="logo-more">25+</div>
+        <div class="logo-paypal">Pay<span>Pal</span></div>
+      </div>
     </div>
   </div>
-
-  <!-- ── Digital Wallet ── -->
-  <div class="payment-row">
-    <span class="row-label">Digital Wallet</span>
-    <div class="logos">
-
-      <!-- Apple Pay -->
-      <div class="apple-pay">
-        <span class="apple-icon">&#63743;</span>
-        <span>Pay</span>
-      </div>
-
-      <!-- Google Pay -->
-      <div class="gpay">
-        <span class="G">G</span><span class="o">o</span><span class="o2">o</span>
-        <span class="g2">g</span><span class="l">l</span><span class="e">e</span>
-        <span class="pay">Pay</span>
-      </div>
-
-      <!-- Alipay -->
-      <div class="alipay-icon">支</div>
-
-      <!-- WeChat Pay -->
-      <div class="wechat-icon">✓</div>
-
-    </div>
-  </div>
-
-  <!-- ── Cryptocurrencies + PayPal ── -->
-  <div class="crypto-paypal-row">
-    <span class="row-label">Cryptocurrencies</span>
-
-    <div class="crypto-logos">
-      <div class="coin coin-tether">₮</div>
-      <div class="coin coin-btc">₿</div>
-      <div class="coin coin-eth">Ξ</div>
-      <span class="crypto-count">25+</span>
-    </div>
-
-    <div class="paypal-badge">
-      <span class="pp-P1">P</span>
-      <span class="pp-P2">P</span>
-      <div class="pp-word">
-        <span class="pp-pay">Pay</span>
-        <span class="pp-pal">Pal</span>
-      </div>
-    </div>
-
-  </div>
-
 </div>
-
+ 
 </body>
 </html>
