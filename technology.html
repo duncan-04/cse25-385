@@ -19,37 +19,81 @@
 
     <nav>
   <div class="nav-logo">P<span>O</span>WER<span>↑</span>P</div>
-  <ul class="nav-links">
-    <li><a href="home.html">Home</a></li>
-    <li><a href="about.html">About Us</a></li>
-    <li><a href="products.html">Products &amp; Services</a></li>
-    <li><a href="technology.html">Technology</a></li>
-    <li><a href="shop.html">Shop</a></li>
-    <li><a href="cart.html">Cart</a></li>
-    <li><a href="wallet.html">Wallet</a></li>
-    <li><a href="payment.html">Payment</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
+  <a onclick="showPage('home')" id="nav-home" class="active">Home</a>
+  <a onclick="showPage('about')" id="nav-about">About Us</a>
+  <a onclick="showPage('products')" id="nav-products">Products &amp; Services</a>
+  <a onclick="showPage('technology')" id="nav-technology">Technology</a>
+  <a onclick="showPage('shop')" id="nav-shop">Shop</a>
+  <a onclick="showPage('cart')" id="nav-cart">Cart</a>
+  <a onclick="showPage('wallet')" id="nav-wallet">Wallet</a>
+  <a onclick="showPage('payment')" id="nav-payment">Payment</a>
+  <a onclick="showPage('contact')" id="nav-contact">Contact</a>
 </nav>
 
 
-<!-- CHARGING TECHNOLOGY -->
-<div class="charging-section">
-  <div class="charging-row">
-    <div style="width:45%;height:240px;background:#b8ccd8;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#666;"><img src="Images/Solar charging vehicle.png" height=100% width=100% alt="This is a Solar charging vehicle"></div>
-    <div class="charging-info">
-      <h2>Solar Charging</h2>
-      <p>Our Batteries use sufficient solar powered systems that help electronic vehicles run on renewable energy. This reduces dependence on coal or oil based electricity.</p>
+<!-- ══════════════ TECHNOLOGY ══════════════ -->
+<div id="page-technology" class="page tech-page">
+  <div class="tech-hero">
+    <h1>Powering<br>Tomorrow</h1>
+    <p>Our proprietary battery technology is engineered to push the boundaries of energy density, charge speed, and longevity — setting a new standard for the electric vehicle industry worldwide.</p>
+  </div>
+ 
+  <div class="tech-stats">
+    <div class="tech-stat">
+      <div class="tech-stat-num">98%</div>
+      <h4>Charge Efficiency</h4>
+      <p>Industry-leading energy conversion rates during both charge and discharge cycles.</p>
+    </div>
+    <div class="tech-stat">
+      <div class="tech-stat-num">500+</div>
+      <h4>km Per Charge</h4>
+      <p>Our flagship lithium-ion packs deliver exceptional range for daily commuters and long-haul drivers alike.</p>
+    </div>
+    <div class="tech-stat">
+      <div class="tech-stat-num">20min</div>
+      <h4>0–80% Fast Charge</h4>
+      <p>Ultra-fast charging capability with advanced thermal management to protect cell longevity.</p>
+    </div>
+    <div class="tech-stat">
+      <div class="tech-stat-num">10yr</div>
+      <h4>Warranty</h4>
+      <p>All battery packs come with a full decade of coverage, reflecting our confidence in build quality.</p>
+    </div>
+    <div class="tech-stat">
+      <div class="tech-stat-num">AI</div>
+      <h4>Smart BMS</h4>
+      <p>An AI-driven Battery Management System actively monitors cell health and optimizes performance in real time.</p>
+    </div>
+    <div class="tech-stat">
+      <div class="tech-stat-num">0%</div>
+      <h4>Emissions</h4>
+      <p>Our full manufacturing process is transitioning to renewable energy sources by 2027.</p>
     </div>
   </div>
-  <div class="charging-row reverse">
-    <div style="width:45%;height:240px;background:#c8d8c8;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#666;"><img src="Images/Power Charging vehicle.png" alt="This is a an image of a power charging vehicle"></div>
-    <div class="charging-info">
-      <h2>Power Charging</h2>
-      <p>Our Batteries use power charging systems that supplies efficient electricity to Electronic Vehicle Battery.<br>Powerup Batteries enable smart charging features for customer convenience.</p>
+ 
+  <div class="tech-features">
+    <h2>Core Technologies</h2>
+    <div class="tech-feature-list">
+      <div class="tech-feature-item">
+        <h4>Polar Plate Sintering</h4>
+        <p>Our proprietary sintering process creates electrode plates with superior surface area and ionic conductivity, boosting both capacity and cycle life.</p>
+      </div>
+      <div class="tech-feature-item">
+        <h4>Regenerative Braking Integration</h4>
+        <p>Seamless compatibility with all major regenerative braking systems, ensuring no energy is wasted during deceleration.</p>
+      </div>
+      <div class="tech-feature-item">
+        <h4>Thermal Management</h4>
+        <p>Multi-layer liquid cooling architecture prevents thermal runaway and maintains optimal operating temperature in all climates.</p>
+      </div>
+      <div class="tech-feature-item">
+        <h4>Solid-State R&D</h4>
+        <p>We are actively developing next-generation solid-state battery cells to further increase energy density and eliminate liquid electrolyte risks.</p>
+      </div>
     </div>
   </div>
 </div>
+
  
   </body>
 </html>
