@@ -1,15 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wallet</title
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Wallet</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700;900&family=Barlow+Condensed:wght@400;700;900&display=swap" rel="stylesheet"/>
 
   <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
+  
+    <style>
+  :root {
+    --black: #0a0a0a;
+    --white: #f5f5f0;
+    --red: #e63323;
+    --steel: #b0b8c1;
+    --blue-pale: #c8dce8;
+    --blue-mid: #7aadca;
+    --dark-green: #1e3a2f;
+    --mid-green: #2d4f3c;
+    --light-bg: #dce8ee;
+    --nav-h: 52px;
+  }
+ 
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--white);
+    color: var(--black);
+    overflow-x: hidden;
+  }
+ 
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    height: var(--nav-h);
+    background: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex; align-items: center;
+    padding: 0 28px;
+    gap: 32px;
+  }
+  .nav-brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.35rem;
+    letter-spacing: 2px;
+    color: var(--black);
+    white-space: nowrap;
+    margin-right: 16px;
+  }
+  nav a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #444;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 4px 0;
+    border-bottom: 2px solid transparent;
+    transition: color .2s, border-color .2s;
+    white-space: nowrap;
+  }
+  nav a:hover, nav a.active { color: var(--red); border-bottom-color: var(--red); }
+
+ /* ══════════════════════════════════════
+     WALLET PAGE
+    ══════════════════════════════════════ */
+  .wallet-page { background: var(--mid-green); color: #fff; min-height: 100vh; }
+  .wallet-inner { padding: 60px 80px; }
+  .wallet-inner h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.3rem; font-weight: 900; letter-spacing: 2px;
+    text-transform: uppercase; text-align: center; margin-bottom: 48px;
+  }
+  .wallet-field { margin-bottom: 32px; }
+  .wallet-field input {
+    display: block; width: 100%;
+    background: var(--dark-green); color: #fff;
+    border: none; border-radius: 8px; padding: 22px 24px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    outline: none; transition: box-shadow .2s;
+    text-align: center;
+  }
+  .wallet-field input::placeholder { color: rgba(255,255,255,.5); }
+  .wallet-field input:focus { box-shadow: 0 0 0 2px var(--blue-mid); }
+  .wallet-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px; }
+  .wallet-row input {
+    display: block; width: 100%;
+    background: var(--dark-green); color: #fff;
+    border: none; border-radius: 8px; padding: 22px 24px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    outline: none; transition: box-shadow .2s; text-align: center;
+  }
+  .wallet-row input::placeholder { color: rgba(255,255,255,.5); }
+  .wallet-row input:focus { box-shadow: 0 0 0 2px var(--blue-mid); }
+  .wallet-submit {
+    display: block; margin: 0 auto;
+    background: #c8e0ec; color: var(--dark-green);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem; font-weight: 900; letter-spacing: 2px; text-transform: uppercase;
+    border: 2px solid var(--dark-green); border-radius: 40px;
+    padding: 14px 52px; cursor: pointer;
+    transition: background .2s, color .2s;
+  }
+  .wallet-submit:hover { background: var(--dark-green); color: #fff; border-color: #fff; } 
+  </style>
+  
 </head>
 
 <body>
@@ -31,21 +135,24 @@
   </ul>
 </nav>
 
-
-<!-- PAYMENT FORM -->
-<div class="payment-section">
-  <h2>Add Card</h2>
-  <div style="align-self:flex-start;max-width:500px;width:100%;">
-    <div style="color:#ccc;font-size:0.9rem;font-weight:600;margin-bottom:8px;"></div>
+<!-- ══════════════ WALLET ══════════════ -->
+<div id="page-wallet" class="page wallet-page">
+  <div class="wallet-inner">
+    <h1>Add Card</h1>
+    <div class="wallet-field">
+      <input type="text" placeholder="Card Name" id="w-name" maxlength="40"/>
+    </div>
+    <div class="wallet-field">
+      <input type="text" placeholder="Card Number" id="w-number" maxlength="19" oninput="formatCard(this)"/>
+    </div>
+    <div class="wallet-row">
+      <input type="text" placeholder="MM/YY" id="w-expiry" maxlength="5" oninput="formatExpiry(this)"/>
+      <input type="text" placeholder="CVV" id="w-cvv" maxlength="4" oninput="this.value=this.value.replace(/\D/g,'')"/>
+    </div>
+    <button class="wallet-submit" onclick="saveCard()">Submit &#8594;</button>
   </div>
-  <input class="pay-input" type="text" placeholder="CARD NAME" />
-  <input class="pay-input" type="text" placeholder="CARD NUMBER" />
-  <div class="pay-row">
-    <input class="pay-input" type="text" placeholder="MM/YY" />
-    <input class="pay-input" type="text" placeholder="CVV" />
-  </div>
-  <button class="pay-submit">Submit →</button>
 </div>
+
 
 </body>
 </html>
