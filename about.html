@@ -10,7 +10,27 @@
   
    <style>
     
+ :root {
+    --black: #0a0a0a;
+    --white: #f5f5f0;
+    --red: #e63323;
+    --steel: #b0b8c1;
+    --blue-pale: #c8dce8;
+    --blue-mid: #7aadca;
+    --dark-green: #1e3a2f;
+    --mid-green: #2d4f3c;
+    --light-bg: #dce8ee;
+    --nav-h: 52px;
+  }
  
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--white);
+    color: var(--black);
+    overflow-x: hidden;
+  }
   /* ── NAV ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
