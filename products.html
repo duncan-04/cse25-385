@@ -1,15 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Battery Technology</title>
-
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Products</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700;900&family=Barlow+Condensed:wght@400;700;900&display=swap" rel="stylesheet"/>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
+
+    <style>
+        :root {
+    --black: #0a0a0a;
+    --white: #f5f5f0;
+    --red: #e63323;
+    --steel: #b0b8c1;
+    --blue-pale: #c8dce8;
+    --blue-mid: #7aadca;
+    --dark-green: #1e3a2f;
+    --mid-green: #2d4f3c;
+    --light-bg: #dce8ee;
+    --nav-h: 52px;
+  }
+ 
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--white);
+    color: var(--black);
+    overflow-x: hidden;
+  }
+ 
+    /* ── NAV ── */
+    nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    height: var(--nav-h);
+    background: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex; align-items: center;
+    padding: 0 28px;
+    gap: 32px;
+  }
+  .nav-brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.35rem;
+    letter-spacing: 2px;
+    color: var(--black);
+    white-space: nowrap;
+    margin-right: 16px;
+  }
+  nav a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #444;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 4px 0;
+    border-bottom: 2px solid transparent;
+    transition: color .2s, border-color .2s;
+    white-space: nowrap;
+  }
+  nav a:hover, nav a.active { color: var(--red); border-bottom-color: var(--red); }
+ 
+  
+        
+ /* ══════════════════════════════════════
+     PRODUCTS PAGE
+  ══════════════════════════════════════ */
+  .products-hero {
+    background: #c8dce8;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+    padding: 48px 60px; align-items: center;
+  }
+  .products-hero img { width: 100%; border-radius: 4px; }
+  .products-hero-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem; font-weight: 900; letter-spacing: 1px;
+    text-transform: uppercase; line-height: 1.45;
+  }
+  .products-intro { background: #c8dce8; padding: 20px 60px 40px; text-align: center; }
+  .products-intro h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem; font-weight: 900; letter-spacing: 2px; text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .products-intro p { font-size: 0.85rem; line-height: 1.75; text-transform: uppercase; max-width: 620px; margin: 0 auto; color: #333; }
+ 
+  .product-item {
+    background: #c8dce8; padding: 40px 60px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
+    border-top: 1px solid rgba(0,0,0,.1);
+  }
+  .product-item img { width: 100%; border-radius: 4px; }
+  .product-item-text h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem; font-weight: 900; letter-spacing: 1.5px; text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .product-item-text p { font-size: 0.85rem; line-height: 1.8; color: #333; text-align: center; }
+ 
+  .features-bar {
+    background: #fff; padding: 32px 60px;
+    display: grid; grid-template-columns: repeat(3, 1fr);
+  }
+  .feature-col { padding: 0 16px; border-right: 1px solid #ddd; }
+  .feature-col:last-child { border: none; }
+  .feature-col h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.85rem; font-weight: 900; letter-spacing: 1.5px;
+    text-transform: uppercase; margin-bottom: 8px;
+  }
+ 
+    </style>
 </head>
 
     <body>
@@ -29,61 +137,73 @@
     <li><a href="payment.html">Payment</a></li>
     <li><a href="contact.html">Contact</a></li>
  </nav>
+
+        <!-- ══════════════ PRODUCTS ══════════════ -->
+<div id="page-products" class="page">
+  <div class="products-hero">
+    <img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=700&q=80" alt="EV Battery" onerror="this.style.background='#8aaac8';this.style.minHeight='220px';"/>
+    <div class="products-hero-text">
+      With an extensive battery portfolio, differentiated solutions are provided to meet the diverse needs of users worldwide.
+    </div>
+  </div>
+ 
+  <div class="products-intro">
+    <h2>Electronic Vehicle Battery Packs</h2>
+    <p>PowerUp Batteries, with its diverse product lineup and optimal solutions, delivers long driving range, high reliability, and quick charging in the EV market.</p>
+  </div>
+ 
+  <div class="product-item">
+    <img src="https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=600&q=80" alt="Battery Electric Vehicle" onerror="this.style.background='#a8c0d8';this.style.minHeight='200px';"/>
+    <div class="product-item-text">
+      <h3>Battery Electric Vehicle</h3>
+      <p>A fully electric car.<br>Power Source: Uses battery only<br>Charging: Use a plug-in charger<br>100% electricity, No fuel</p>
+    </div>
+  </div>
+ 
+  <div class="product-item">
+    <img src="https://images.unsplash.com/photo-1556742044-3c52d6e88c62?w=600&q=80" alt="Plug-in Hybrid Electric Vehicle" onerror="this.style.background='#b8cad8';this.style.minHeight='200px';"/>
+    <div class="product-item-text">
+      <h3>Plug-in Hybrid Electric Vehicle / Extended Range Electric Vehicle</h3>
+      <p>A mix of electric + fuel engine.<br>Power Source: Battery + petrol engine<br>Charging: Plug-in charger + engine can recharge battery.<br>It drives on electricity first then switches to fuel when battery is low.</p>
+    </div>
+  </div>
+ 
+  <div class="product-item">
+    <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=600&q=80" alt="Hybrid Electric Vehicle" onerror="this.style.background='#c0c8d8';this.style.minHeight='200px';"/>
+    <div class="product-item-text">
+      <h3>Hybrid Electric Vehicle</h3>
+      <p>A hybrid but not a plug-in.<br>Power Source: Battery + fuel engine<br>Charging: Battery charges automatically (regenerative braking).<br>Uses both engine and battery together.</p>
+    </div>
+  </div>
+ 
+  <div class="product-item">
+    <img src="https://images.unsplash.com/photo-1571992162059-4eec4cc70f57?w=600&q=80" alt="Mild Hybrid Electric Vehicle" onerror="this.style.background='#c8ccd8';this.style.minHeight='200px';"/>
+    <div class="product-item-text">
+      <h3>Mild Hybrid Electric Vehicle</h3>
+      <p>A small electric assist system.<br>Power Source: Fuel engine + small battery<br>Charging: Automatic<br>Battery helps engine and cannot drive on electricity alone.</p>
+    </div>
+  </div>
+ 
+  <div class="features-bar">
+    <div class="feature-col">
+      <h4>Fast Charging Performance</h4>
+      <p style="font-size:.8rem;color:#666;">Rapid charge cycles for minimal downtime on the road.</p>
+    </div>
+    <div class="feature-col">
+      <h4>High Energy Storage</h4>
+      <p style="font-size:.8rem;color:#666;">Maximum energy density for extended range capability.</p>
+    </div>
+    <div class="feature-col">
+      <h4>Eco-Friendly Operation</h4>
+      <p style="font-size:.8rem;color:#666;">Zero-emission power solutions for a greener tomorrow.</p>
+    </div>
+  </div>
+</div>
  
 
     
     
-<!-- ELECTRONIC VEHICLE BATTERY PACKS -->
-<div class="packs-section">
-  <div style="display:flex;gap:32px;margin-bottom:32px;">
-    <div style="width:45%;height:200px;background:#c0c8d0;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#666;"><img src="Images/EV Battery pack.png" height="100%" width="100%" alt="This is an image of a Battery pack.</div>
-    <div style="flex:1;display:flex;align-items:center;">
-      <p class="intro-quote">With an extensive battery portfolio, differentiated solutions are provided to meet the diverse needs of users worldwide.</p>
-    </div>
-  </div>
- 
-  <div class="packs-header">Electronic Vehicle Battery Packs</div>
-  <div class="packs-subheader">PowerUp Batteries, with its diverse product lineup and optimal solutions, delivers long<br>driving range, high reliability, and quick charging in the EV market.</div>
- 
-  <div class="pack-row">
-    <div style="width:42%;height:160px;background:#d0dce8;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#666;"><img src="Images/Battery Electric Vehicle.png" height="100%" width="300%" object-fit="contain;" alt="This is an EV Battery"></div>
-    <div class="pack-info">
-      <h3>Battery Electric Vehicle</h3>
-      <p>A fully electric car.<br>Power Source: Uses battery only<br>Charging: Use a plug in charger<br>100% electricity, No fuel</p>
-    </div>
-  </div>
- 
-  <div class="pack-row">
-    <div style="width:42%;height:160px;background:#d0dce8;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#666;"><img src="Images/PEV Battery.png" height="100%" width="300%" alt="This is a picture of a PHEV Battery"></div>
-    <div class="pack-info">
-      <h3>Plug-in Hybrid Electric Vehicle / Extended Range Electric Vehicle</h3>
-      <p>A mix of electric + fuel engine.<br>Power Source: Battery + petrol engine<br>Charging: Plug in charger + engine can recharge battery<br>It drives on electricity first then switches to fuel when battery is low</p>
-    </div>
-  </div>
- 
-  <div class="pack-row">
-    <div style="width:42%;height:160px;background:#d0dce8;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#666;"><img src="Images/HEV Battery.png" height="100%" width="300%" alt="This is a picture of an HEV Battery"></div>
-    <div class="pack-info">
-      <h3>Hybrid Electric Vehicle</h3>
-      <p>A hybrid but not a plug-in.<br>Power Source: Battery + fuel engine<br>Charging: Battery charges automatically (regenerative braking).<br>uses both engine and battery together.</p>
-    </div>
-  </div>
- 
-  <div class="pack-row">
-    <div style="width:42%;height:160px;background:#d0dce8;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#666;"><img src="Images/MHEV Battery.png" height="100%" width="300%" alt="This is a picture of an MHEV Battery"></div>
-    <div class="pack-info">
-      <h3>Mild Hybrid Electric Vehicle</h3>
-      <p>A small electric assist system.<br>Power Source: Fuel engine + small battery<br>Charging: Automatic<br>Battery helps engine and cannot drive on electricity alone</p>
-    </div>
-  </div>
- 
-<!-- FEATURES BAR -->
-<div class="features-bar">
-  <h3>Features of Batteries</h3>
-  <span>Fast Charging Performance</span>
-  <span>High Energy Storage</span>
-  <span>Eco-Friendly Operation</span>
-</div>
+
 
     </body>
 </html>
