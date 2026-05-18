@@ -7,8 +7,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700;900&family=Barlow+Condensed:wght@400;700;900&display=swap" rel="stylesheet"/>
 
   <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
   
@@ -36,23 +39,22 @@
   }
  
   /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-    height: var(--nav-h);
-    background: #fff;
-    border-bottom: 1px solid #e0e0e0;
-    display: flex; align-items: center;
-    padding: 0 28px;
-    gap: 32px;
-  }
-  .nav-brand {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.35rem;
-    letter-spacing: 2px;
-    color: var(--black);
-    white-space: nowrap;
-    margin-right: 16px;
-  }
+  .navbar-brand {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 2px;
+}
+
+.nav-link {
+  font-family: 'Barlow Condensed', sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.nav-link:hover {
+  color: #e63323 !important;
+}
+      
   nav a {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 0.78rem;
@@ -68,6 +70,41 @@
     white-space: nowrap;
   }
   nav a:hover, nav a.active { color: var(--red); border-bottom-color: var(--red); }
+
+      /* MOBILE RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+
+  .home-section,
+  .offer-section,
+  .ev-types {
+    padding: 20px;
+  }
+
+  .offer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .why-choose {
+    grid-template-columns: 1fr;
+  }
+
+  .ev-type-item {
+    grid-template-columns: 1fr;
+  }
+
+  .offer-section h2,
+  .ev-types h2 {
+    font-size: 2.2rem;
+  }
+
+  .why-choose-text {
+    padding: 20px;
+  }
+
+  .nav-link {
+    text-align: center;
+  }
+}
 
  /* ══════════════════════════════════════
      WALLET PAGE
@@ -120,17 +157,72 @@
   <script src="script.js" defer></script>
  
 <!-- NAV -->
-<nav>
-  <div class="nav-brand">POWERUP BATTERIES</div>
-  <a href="index.html">Home</a>
-  <a href="about.html">About Us</a>
-  <a href="products.html">Products & Services</a>
-  <a href="technology.html">Technology</a>
-  <a href="shop.html">Shop</a>
-  <a href="cart.html">Cart</a>
-  <a href="wallet.html">Wallet</a>
-  <a href="payment.html">Payment</a>
-  <a href="contact.html">Contact</a>
+  
+<!-- RESPONSIVE NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top border-bottom">
+  <div class="container-fluid">
+
+    <!-- Brand -->
+    <a class="navbar-brand fw-bold" href="#">
+      POWERUP BATTERIES
+    </a>
+
+    <!-- Mobile Toggle Button -->
+    <button class="navbar-toggler" type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapsible Links -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+
+      <ul class="navbar-nav ms-auto">
+
+        <li class="nav-item">
+          <a class="nav-link active" href="index.html">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About Us</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="products.html">Products & Services</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="technology.html">Technology</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="shop.html">Shop</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="cart.html">Cart</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="wallet.html">Wallet</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="payment.html">Payment</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
 </nav>
 
 <!-- ══════════════ WALLET ══════════════ -->
