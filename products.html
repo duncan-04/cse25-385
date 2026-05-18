@@ -71,6 +71,41 @@
     white-space: nowrap;
   }
   nav a:hover, nav a.active { color: var(--red); border-bottom-color: var(--red); }
+
+    /* MOBILE RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+
+  .home-section,
+  .offer-section,
+  .ev-types {
+    padding: 20px;
+  }
+
+  .offer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .why-choose {
+    grid-template-columns: 1fr;
+  }
+
+  .ev-type-item {
+    grid-template-columns: 1fr;
+  }
+
+  .offer-section h2,
+  .ev-types h2 {
+    font-size: 2.2rem;
+  }
+
+  .why-choose-text {
+    padding: 20px;
+  }
+
+  .nav-link {
+    text-align: center;
+  }
+}
  
   
         
