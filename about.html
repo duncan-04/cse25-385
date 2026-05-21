@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About Us</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700;900&family=Barlow+Condensed:wght@400;700;900&display=swap" rel="stylesheet"/>
 
@@ -37,7 +37,11 @@
     color: var(--black);
     overflow-x: hidden;
   }
- 
+
+img {
+  max-width: 100%;
+  height: auto;
+}
    /* ── NAV ── */
      
     .navbar-brand {
@@ -72,41 +76,12 @@
   }
   nav a:hover, nav a.active { color: var(--red); border-bottom-color: var(--red); }
 
-     /* MOBILE RESPONSIVE DESIGN */
-@media (max-width: 768px) {
-
-  .home-section,
-  .offer-section,
-  .ev-types {
-    padding: 20px;
-  }
-
-  .offer-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .why-choose {
-    grid-template-columns: 1fr;
-  }
-
-  .ev-type-item {
-    grid-template-columns: 1fr;
-  }
-
-  .offer-section h2,
-  .ev-types h2 {
-    font-size: 2.2rem;
-  }
-
-  .why-choose-text {
-    padding: 20px;
-  }
-
-  .nav-link {
-    text-align: center;
-  }
+     .page {
+  display: none;
+  min-height: 100vh;
+  padding-top: 70px;
 }
- 
+   
  /* ══════════════════════════════════════
      ABOUT PAGE
   ══════════════════════════════════════ */
@@ -137,6 +112,141 @@
   .about-sustain h2 { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; margin-bottom: 14px; }
   .about-sustain p { font-size: 0.95rem; line-height: 1.7; color: #444; }
   .about-sustain img { width: 100%; border-radius: 6px; }
+
+/* ══════════════════════════════════════
+   MOBILE & TABLET RESPONSIVE DESIGN
+══════════════════════════════════════ */
+
+@media (max-width: 992px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  /* General section spacing */
+  .home-section,
+  .offer-section,
+  .ev-types {
+    padding: 25px 20px;
+  }
+
+  /* Hero images */
+  .hero-img-wrap {
+    max-width: 100%;
+  }
+
+  .hero-img-wrap img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Navbar mobile */
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+
+  .nav-link {
+    text-align: center;
+    padding: 12px 0;
+  }
+
+  /* Fix page spacing below navbar */
+  .page {
+    padding-top: 70px;
+  }
+
+  /* WHY CHOOSE SECTION */
+  .why-choose {
+    grid-template-columns: 1fr;
+  }
+
+  .why-choose-img {
+    height: 250px;
+  }
+
+  .why-choose-text {
+    padding: 25px;
+    text-align: center;
+  }
+
+  /* OFFER GRID */
+  .offer-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .offer-card img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* EV TYPES */
+  .ev-type-item {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .ev-type-item img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Headings */
+  .offer-section h2,
+  .ev-types h2 {
+    font-size: 2.3rem;
+    line-height: 1.1;
+    max-width: 100%;
+  }
+
+  .home-section h2 {
+    font-size: 0.9rem;
+  }
+
+  /* Paragraphs */
+  .ev-type-item p,
+  .why-choose-text p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  /* Video */
+  .video-placeholder {
+    max-width: 100%;
+  }
+}
+
+
+/* EXTRA SMALL DEVICES */
+@media (max-width: 576px) {
+
+  .navbar-brand {
+    font-size: 1rem;
+  }
+
+  .offer-section h2,
+  .ev-types h2 {
+    font-size: 1.8rem;
+  }
+
+  .why-choose-text h3 {
+    font-size: 1rem;
+  }
+
+  .offer-card-label {
+    font-size: 0.8rem;
+  }
+
+  .offer-card-label p {
+    font-size: 0.7rem;
+  }
+
+  .home-section,
+  .offer-section,
+  .ev-types {
+    padding: 20px 15px;
+  }
+}
     </style>
  
   </head>
