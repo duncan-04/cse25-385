@@ -84,6 +84,91 @@ img {
 }
   .page.active { display: block; }
        
+
+  /* ══════════════════════════════════════
+     HOME PAGE
+  ══════════════════════════════════════ */
+  /* Hero rows */
+  .home-section { padding: 40px 60px; }
+  .home-section h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    text-align: center; margin-bottom: 18px;
+  }
+  .hero-img-wrap {
+    width: 100%; max-width: 560px; margin: 0 auto;
+    border-radius: 4px; overflow: hidden;
+  }
+  .hero-img-wrap img { width: 100%; display: block; }
+ 
+  /* video placeholder */
+  .video-placeholder {
+    width: 100%; max-width: 560px; margin: 0 auto;
+    background: #111; border-radius: 4px;
+    aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center;
+    cursor: pointer; position: relative; overflow: hidden;
+  }
+  .play-btn {
+    width: 60px; height: 60px; border-radius: 50%;
+    background: rgba(255,255,255,.15); border: 2px solid rgba(255,255,255,.6);
+    display: flex; align-items: center; justify-content: center;
+    transition: background .2s;
+  }
+  .play-btn:hover { background: rgba(255,255,255,.28); }
+  .play-btn svg { fill: #fff; width: 22px; }
+ 
+  /* why-choose banner */
+  .why-choose {
+    background: linear-gradient(90deg, #d6d8d9 0%, #c0c4c8 100%);
+    display: grid; grid-template-columns: 1fr 1fr;
+    min-height: 220px;
+  }
+  .why-choose-img { width: 100%; height: 100%; object-fit: cover; }
+  .why-choose-text {
+    padding: 40px 48px; display: flex; flex-direction: column; justify-content: center;
+  }
+  .why-choose-text h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem; font-weight: 900; letter-spacing: 1.5px;
+    text-transform: uppercase; margin-bottom: 14px;
+  }
+  .why-choose-text p { font-size: 0.82rem; line-height: 1.65; text-transform: uppercase; color: #333; }
+ 
+  /* what we offer */
+  .offer-section { background: var(--black); padding: 48px 48px 56px; }
+  .offer-section h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.2rem; color: var(--white); margin-bottom: 30px; line-height: 1;
+  }
+  .offer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .offer-card { position: relative; overflow: hidden; border-radius: 4px; cursor: pointer; }
+  .offer-card img { width: 100%; display: block; filter: brightness(.7); transition: filter .3s, transform .4s; }
+  .offer-card:hover img { filter: brightness(.85); transform: scale(1.04); }
+  .offer-card-label {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: var(--red); padding: 10px 14px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.9rem; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; color: #fff;
+  }
+  .offer-card-label p { font-size: 0.72rem; font-weight: 400; margin-top: 4px; opacity: .85; }
+ 
+  /* EV types */
+  .ev-types { padding: 56px 60px; background: var(--white); }
+  .ev-types h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem; line-height: 1; margin-bottom: 36px;
+    max-width: 260px;
+  }
+  .ev-type-item { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 40px; align-items: center; }
+  .ev-type-item h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px;
+  }
+  .ev-type-item p { font-size: 0.85rem; line-height: 1.75; color: #444; }
+  .ev-type-item img { width: 100%; border-radius: 4px; }
+
 /* ══════════════════════════════════════
    MOBILE & TABLET RESPONSIVE DESIGN
 ══════════════════════════════════════ */
@@ -218,90 +303,6 @@ img {
     padding: 20px 15px;
   }
 }
-      
-  /* ══════════════════════════════════════
-     HOME PAGE
-  ══════════════════════════════════════ */
-  /* Hero rows */
-  .home-section { padding: 40px 60px; }
-  .home-section h2 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1rem; font-weight: 700;
-    letter-spacing: 2px; text-transform: uppercase;
-    text-align: center; margin-bottom: 18px;
-  }
-  .hero-img-wrap {
-    width: 100%; max-width: 560px; margin: 0 auto;
-    border-radius: 4px; overflow: hidden;
-  }
-  .hero-img-wrap img { width: 100%; display: block; }
- 
-  /* video placeholder */
-  .video-placeholder {
-    width: 100%; max-width: 560px; margin: 0 auto;
-    background: #111; border-radius: 4px;
-    aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center;
-    cursor: pointer; position: relative; overflow: hidden;
-  }
-  .play-btn {
-    width: 60px; height: 60px; border-radius: 50%;
-    background: rgba(255,255,255,.15); border: 2px solid rgba(255,255,255,.6);
-    display: flex; align-items: center; justify-content: center;
-    transition: background .2s;
-  }
-  .play-btn:hover { background: rgba(255,255,255,.28); }
-  .play-btn svg { fill: #fff; width: 22px; }
- 
-  /* why-choose banner */
-  .why-choose {
-    background: linear-gradient(90deg, #d6d8d9 0%, #c0c4c8 100%);
-    display: grid; grid-template-columns: 1fr 1fr;
-    min-height: 220px;
-  }
-  .why-choose-img { width: 100%; height: 100%; object-fit: cover; }
-  .why-choose-text {
-    padding: 40px 48px; display: flex; flex-direction: column; justify-content: center;
-  }
-  .why-choose-text h3 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.1rem; font-weight: 900; letter-spacing: 1.5px;
-    text-transform: uppercase; margin-bottom: 14px;
-  }
-  .why-choose-text p { font-size: 0.82rem; line-height: 1.65; text-transform: uppercase; color: #333; }
- 
-  /* what we offer */
-  .offer-section { background: var(--black); padding: 48px 48px 56px; }
-  .offer-section h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 3.2rem; color: var(--white); margin-bottom: 30px; line-height: 1;
-  }
-  .offer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .offer-card { position: relative; overflow: hidden; border-radius: 4px; cursor: pointer; }
-  .offer-card img { width: 100%; display: block; filter: brightness(.7); transition: filter .3s, transform .4s; }
-  .offer-card:hover img { filter: brightness(.85); transform: scale(1.04); }
-  .offer-card-label {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    background: var(--red); padding: 10px 14px;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.9rem; font-weight: 700; letter-spacing: 1px;
-    text-transform: uppercase; color: #fff;
-  }
-  .offer-card-label p { font-size: 0.72rem; font-weight: 400; margin-top: 4px; opacity: .85; }
- 
-  /* EV types */
-  .ev-types { padding: 56px 60px; background: var(--white); }
-  .ev-types h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 3.5rem; line-height: 1; margin-bottom: 36px;
-    max-width: 260px;
-  }
-  .ev-type-item { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 40px; align-items: center; }
-  .ev-type-item h4 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px;
-  }
-  .ev-type-item p { font-size: 0.85rem; line-height: 1.75; color: #444; }
-  .ev-type-item img { width: 100%; border-radius: 4px; }
  
   </style>
 </head>
