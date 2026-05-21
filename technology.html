@@ -37,6 +37,12 @@
     color: var(--black);
     overflow-x: hidden;
   }
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
  
   /* ── NAV ── */
         
@@ -70,43 +76,13 @@
     transition: color .2s, border-color .2s;
     white-space: nowrap;
   }
-  nav a:hover, nav a.active { color: var(--red); border-bottom-color: var(--red); }   
-        
-/* MOBILE RESPONSIVE DESIGN */
-@media (max-width: 768px) {
+  nav a:hover, nav a.active { color: var(--red); border-bottom-color: var(--red); }  
 
-  .home-section,
-  .offer-section,
-  .ev-types {
-    padding: 20px;
-  }
-
-  .offer-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .why-choose {
-    grid-template-columns: 1fr;
-  }
-
-  .ev-type-item {
-    grid-template-columns: 1fr;
-  }
-
-  .offer-section h2,
-  .ev-types h2 {
-    font-size: 2.2rem;
-  }
-
-  .why-choose-text {
-    padding: 20px;
-  }
-
-  .nav-link {
-    text-align: center;
-  }
+.page {
+  min-height: 100vh;
+  padding-top: 80px;
 }
-        
+               
  /* ══════════════════════════════════════
      TECHNOLOGY PAGE
   ══════════════════════════════════════ */
@@ -120,8 +96,11 @@
   }
   .tech-hero p { font-size: 1.05rem; line-height: 1.8; color: #bbb; max-width: 680px; }
   .tech-stats {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    padding: 0 60px 60px; gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  padding: 0 60px 60px;
+  gap: 24px;
+}
   }
   .tech-stat {
     border: 1px solid #2a2a2a; border-radius: 8px; padding: 32px 28px;
@@ -145,7 +124,11 @@
     font-size: 1rem; font-weight: 900; letter-spacing: 2px; text-transform: uppercase;
     color: var(--blue-mid); margin-bottom: 28px;
   }
-  .tech-feature-list { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+ .tech-feature-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
   .tech-feature-item {
     background: #141414; border-radius: 8px; padding: 24px 28px;
     border-left: 3px solid var(--blue-mid);
@@ -156,6 +139,108 @@
     text-transform: uppercase; margin-bottom: 8px; color: #ddd;
   }
   .tech-feature-item p { font-size: 0.82rem; line-height: 1.7; color: #666; }
+
+/* ══════════════════════════════════════
+   RESPONSIVE DESIGN
+══════════════════════════════════════ */
+
+@media (max-width: 992px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  /* NAVBAR */
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+
+  .nav-link {
+    text-align: center;
+    padding: 12px 0;
+  }
+
+  /* HERO */
+  .tech-hero {
+    padding: 30px 20px;
+    text-align: center;
+  }
+
+  .tech-hero h1 {
+    font-size: 3.5rem;
+    line-height: 1;
+  }
+
+  .tech-hero p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-width: 100%;
+  }
+
+  /* STATS */
+  .tech-stats {
+    padding: 0 20px 40px;
+  }
+
+  .tech-stat {
+    padding: 25px 20px;
+    text-align: center;
+  }
+
+  .tech-stat-num {
+    font-size: 3rem;
+  }
+
+  /* FEATURES */
+  .tech-features {
+    padding: 0 20px 50px;
+  }
+
+  .tech-features h2 {
+    text-align: center;
+  }
+
+  .tech-feature-item {
+    padding: 20px;
+  }
+}
+
+
+/* EXTRA SMALL DEVICES */
+@media (max-width: 576px) {
+
+  .navbar-brand {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+  }
+
+  .tech-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .tech-hero p,
+  .tech-stat p,
+  .tech-feature-item p {
+    font-size: 0.85rem;
+  }
+
+  .tech-stat-num {
+    font-size: 2.5rem;
+  }
+
+  .tech-features h2,
+  .tech-stat h4,
+  .tech-feature-item h4 {
+    font-size: 0.9rem;
+  }
+
+  .tech-hero,
+  .tech-stats,
+  .tech-features {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+} 
  
     </style>
   </head>
