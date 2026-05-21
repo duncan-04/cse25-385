@@ -37,7 +37,12 @@
     color: var(--black);
     overflow-x: hidden;
   }
- 
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
     /* ── NAV ── */
         
    .navbar-brand {
@@ -72,51 +77,22 @@
   }
   nav a:hover, nav a.active { color: var(--red); border-bottom-color: var(--red); }
 
-    /* MOBILE RESPONSIVE DESIGN */
-@media (max-width: 768px) {
-
-  .home-section,
-  .offer-section,
-  .ev-types {
-    padding: 20px;
-  }
-
-  .offer-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .why-choose {
-    grid-template-columns: 1fr;
-  }
-
-  .ev-type-item {
-    grid-template-columns: 1fr;
-  }
-
-  .offer-section h2,
-  .ev-types h2 {
-    font-size: 2.2rem;
-  }
-
-  .why-choose-text {
-    padding: 20px;
-  }
-
-  .nav-link {
-    text-align: center;
-  }
+.page {
+  min-height: 100vh;
+  padding-top: 80px;
 }
- 
-  
         
  /* ══════════════════════════════════════
      PRODUCTS PAGE
   ══════════════════════════════════════ */
   .products-hero {
-    background: #c8dce8;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
-    padding: 48px 60px; align-items: center;
-  }
+  background: #c8dce8;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  padding: 48px 60px;
+  align-items: center;
+}
   .products-hero img { width: 100%; border-radius: 4px; }
   .products-hero-text {
     font-family: 'Barlow Condensed', sans-serif;
@@ -131,11 +107,15 @@
   }
   .products-intro p { font-size: 0.85rem; line-height: 1.75; text-transform: uppercase; max-width: 620px; margin: 0 auto; color: #333; }
  
-  .product-item {
-    background: #c8dce8; padding: 40px 60px;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
-    border-top: 1px solid rgba(0,0,0,.1);
-  }
+.product-item {
+  background: #c8dce8;
+  padding: 40px 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  align-items: center;
+  border-top: 1px solid rgba(0,0,0,.1);
+}
   .product-item img { width: 100%; border-radius: 4px; }
   .product-item-text h3 {
     font-family: 'Barlow Condensed', sans-serif;
@@ -145,9 +125,12 @@
   .product-item-text p { font-size: 0.85rem; line-height: 1.8; color: #333; text-align: center; }
  
   .features-bar {
-    background: #fff; padding: 32px 60px;
-    display: grid; grid-template-columns: repeat(3, 1fr);
-  }
+  background: #fff;
+  padding: 32px 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
   .feature-col { padding: 0 16px; border-right: 1px solid #ddd; }
   .feature-col:last-child { border: none; }
   .feature-col h4 {
@@ -155,6 +138,119 @@
     font-size: 0.85rem; font-weight: 900; letter-spacing: 1.5px;
     text-transform: uppercase; margin-bottom: 8px;
   }
+
+/* ══════════════════════════════════════
+   RESPONSIVE DESIGN
+══════════════════════════════════════ */
+
+@media (max-width: 992px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  /* NAVBAR */
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+
+  .nav-link {
+    text-align: center;
+    padding: 12px 0;
+  }
+
+  /* HERO SECTION */
+  .products-hero {
+    padding: 30px 20px;
+    gap: 25px;
+    text-align: center;
+  }
+
+  .products-hero-text {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  /* INTRO */
+  .products-intro {
+    padding: 25px 20px;
+  }
+
+  .products-intro h2 {
+    font-size: 1rem;
+  }
+
+  .products-intro p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  /* PRODUCT ITEMS */
+  .product-item {
+    padding: 30px 20px;
+    gap: 25px;
+    text-align: center;
+  }
+
+  .product-item-text h3 {
+    font-size: 0.95rem;
+  }
+
+  .product-item-text p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  /* FEATURES */
+  .features-bar {
+    padding: 25px 20px;
+  }
+
+  .feature-col {
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+    text-align: center;
+  }
+
+  .feature-col:last-child {
+    border-bottom: none;
+  }
+}
+
+
+/* EXTRA SMALL DEVICES */
+@media (max-width: 576px) {
+
+  .navbar-brand {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+  }
+
+  .products-hero-text {
+    font-size: 0.9rem;
+  }
+
+  .products-intro h2,
+  .product-item-text h3,
+  .feature-col h4 {
+    font-size: 0.9rem;
+  }
+
+  .products-intro p,
+  .product-item-text p,
+  .feature-col p {
+    font-size: 0.85rem;
+  }
+
+  .products-hero,
+  .products-intro,
+  .product-item,
+  .features-bar {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}  
  
     </style>
 </head>
