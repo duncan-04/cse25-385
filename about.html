@@ -37,7 +37,12 @@
     color: var(--black);
     overflow-x: hidden;
   }
-     
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
    /* ── NAV ── */
      
     .navbar-brand {
@@ -71,43 +76,12 @@
     white-space: nowrap;
   }
   nav a:hover, nav a.active { color: var(--red); border-bottom-color: var(--red); }
-     
-           
-    /* MOBILE RESPONSIVE DESIGN*/
-@media (max-width: 768px) {
 
-  .home-section,
-  .offer-section,
-  .ev-types {
-    padding: 20px;
-  }
-
-  .offer-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .why-choose {
-    grid-template-columns: 1fr;
-  }
-
-  .ev-type-item {
-    grid-template-columns: 1fr;
-  }
-
-  .offer-section h2,
-  .ev-types h2 {
-    font-size: 2.2rem;
-  }
-
-  .why-choose-text {
-    padding: 20px;
-  }
-
-  .nav-link {
-    text-align: center;
-  }
+     .page {
+  min-height: 100vh;
+  padding-top: 80px;
 }
-    
+     
    
  /* ══════════════════════════════════════
      ABOUT PAGE
@@ -139,6 +113,126 @@
   .about-sustain h2 { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; margin-bottom: 14px; }
   .about-sustain p { font-size: 0.95rem; line-height: 1.7; color: #444; }
   .about-sustain img { width: 100%; border-radius: 6px; }
+
+ /* ══════════════════════════════════════
+   RESPONSIVE DESIGN
+══════════════════════════════════════ */
+
+@media (max-width: 992px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  /* NAVBAR */
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+
+  .nav-link {
+    text-align: center;
+    padding: 12px 0;
+  }
+
+  /* ABOUT HERO */
+  .about-hero {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 30px 20px;
+  }
+
+  .about-hero-text {
+    text-align: center;
+  }
+
+  .about-hero-text h2 {
+    font-size: 1.1rem;
+  }
+
+  .about-hero-text p {
+    font-size: 0.95rem;
+  }
+
+  /* ABOUT BODY */
+  .about-body {
+    padding: 20px;
+  }
+
+  .about-body p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  /* AREA OF FOCUS */
+  .about-focus {
+    padding: 30px 20px;
+    text-align: center;
+  }
+
+  .about-focus h2 {
+    font-size: 2.4rem;
+  }
+
+  .about-focus p {
+    font-size: 0.95rem;
+  }
+
+  /* SUSTAINABILITY */
+  .about-sustain {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .about-sustain h2 {
+    font-size: 2.2rem;
+  }
+
+  .about-sustain p {
+    font-size: 0.95rem;
+  }
+
+  /* IMAGES */
+  .about-hero img,
+  .about-sustain img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+
+/* EXTRA SMALL DEVICES */
+@media (max-width: 576px) {
+
+  .navbar-brand {
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+  }
+
+  .about-focus h2,
+  .about-sustain h2 {
+    font-size: 1.8rem;
+  }
+
+  .about-hero-text h2 {
+    font-size: 1rem;
+  }
+
+  .about-body p,
+  .about-focus p,
+  .about-sustain p {
+    font-size: 0.9rem;
+  }
+
+  .about-hero,
+  .about-body,
+  .about-focus,
+  .about-sustain {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
 
     </style>
  
