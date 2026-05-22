@@ -303,6 +303,15 @@ img {
     padding: 20px 15px;
   }
 }
+
+.website-video{
+  width:100%;
+  max-width:560px;
+  display:block;
+  margin:0 auto;
+  border-radius:6px;
+  object-fit:cover;
+}
  
   </style>
 </head>
@@ -398,14 +407,18 @@ img {
     </div>
   </div>
  
-  <!-- Video placeholder -->
-  <div class="home-section" style="padding-top:0;">
-    <div class="video-placeholder" onclick="alert('Video player coming soon!')">
-      <div class="play-btn">
-        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-      </div>
-    </div>
-  </div>
+ <!-- Video Section -->
+<div class="home-section" style="padding-top:0;">
+
+  <video controls autoplay muted loop class="website-video">
+    
+    <source src="Videos/powerup-video.mp4" type="video/mp4">
+    
+    Your browser does not support the video tag.
+
+  </video>
+
+</div>
  
   <!-- Hero: Fast Charging -->
   <div class="home-section">
