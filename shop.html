@@ -141,7 +141,25 @@
   .cat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .cat-card { background: #fff; border-radius: 8px; overflow: hidden; text-align: center; cursor: pointer; transition: transform .25s; }
   .cat-card:hover { transform: translateY(-4px); }
-  .cat-card img { width: 100%; height: 120px; object-fit: cover; }
+   
+  /* CATEGORY MEDIA FRAME */
+.cat-media{
+  width:100%;
+  height:220px;
+  overflow:hidden;
+  border-top-left-radius:8px;
+  border-top-right-radius:8px;
+  background:#000;
+}
+
+/* BOTH IMAGES & VIDEOS */
+.cat-media img,
+.cat-media video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
   .cat-card-body { padding: 16px; }
   .cat-card-body h4 {
     font-family: 'Barlow Condensed', sans-serif;
