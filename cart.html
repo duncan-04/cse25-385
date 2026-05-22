@@ -175,6 +175,51 @@
     border-radius: 24px;
   }
   .continue-btn:hover { background: #c0d8ef; }
+
+/* PAGE NAVIGATION BUTTONS */
+.page-navigation{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:40px 60px;
+  background:#f5f5f0;
+}
+
+.nav-btn{
+  text-decoration:none;
+  background:#0a0a0a;
+  color:white;
+  padding:12px 28px;
+  border-radius:6px;
+  font-family:'Barlow Condensed', sans-serif;
+  font-size:0.9rem;
+  font-weight:700;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  transition:0.3s ease;
+}
+
+.nav-btn:hover{
+  background:#e63323;
+  color:white;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width:768px){
+
+  .page-navigation{
+    padding:25px 20px;
+    gap:15px;
+  }
+
+  .nav-btn{
+    flex:1;
+    text-align:center;
+    padding:12px 10px;
+    font-size:0.8rem;
+  }
+}
+      
   </style>
   </head>
 
@@ -294,7 +339,18 @@
   </div>
 </div>
  
- 
+ <!-- PAGE NAVIGATION BUTTONS -->
+<div class="page-navigation">
+
+  <a href="shop.html" class="nav-btn prev-btn">
+    ← Previous
+  </a>
+
+  <a href="wallet.html" class="nav-btn next-btn">
+    Next →
+  </a>
+
+</div>
 </body>
 </html>
 
