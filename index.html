@@ -118,23 +118,65 @@ img {
   .play-btn:hover { background: rgba(255,255,255,.28); }
   .play-btn svg { fill: #fff; width: 22px; }
  
-  /* why-choose banner */
-  .why-choose {
-    background: linear-gradient(90deg, #d6d8d9 0%, #c0c4c8 100%);
-    display: grid; grid-template-columns: 1fr 1fr;
-    min-height: 220px;
+  /* WHY-CHOOSE BANNER */
+.why-choose{
+  background:linear-gradient(90deg,#d6d8d9 0%,#c0c4c8 100%);
+  display:grid;
+  grid-template-columns:1fr 1fr;
+
+  min-height:450px;
+  overflow:hidden;
+}
+
+/* VIDEO */
+.why-choose-video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* TEXT */
+.why-choose-text{
+  padding:50px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.why-choose-text h3{
+  font-family:'Barlow Condensed', sans-serif;
+  font-size:1.4rem;
+  font-weight:900;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+
+.why-choose-text p{
+  font-size:0.95rem;
+  line-height:1.8;
+  text-transform:uppercase;
+  color:#333;
+}
+
+/* MOBILE */
+@media (max-width:768px){
+
+  .why-choose{
+    grid-template-columns:1fr;
   }
-  .why-choose-img { width: 100%; height: 100%; object-fit: cover; }
-  .why-choose-text {
-    padding: 40px 48px; display: flex; flex-direction: column; justify-content: center;
+
+  .why-choose-video{
+    height:300px;
   }
-  .why-choose-text h3 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.1rem; font-weight: 900; letter-spacing: 1.5px;
-    text-transform: uppercase; margin-bottom: 14px;
+
+  .why-choose-text{
+    padding:25px;
+    text-align:center;
   }
-  .why-choose-text p { font-size: 0.82rem; line-height: 1.65; text-transform: uppercase; color: #333; }
- 
+}
+       
   /* what we offer */
   .offer-section { background: var(--black); padding: 48px 48px 56px; }
   .offer-section h2 {
@@ -473,14 +515,25 @@ img {
   </div>
  
   <!-- Why Choose -->
-  <div class="why-choose">
-    <img src="Images/powerup batteries image.png" alt="Battery Lab" class="why-choose-img" onerror="this.style.background='#8a9aaa';"/>
-    <div class="why-choose-text">
-      <h3>Why Choose PowerUp Batteries?</h3>
-      <p>PowerUp Batteries aims to power electric vehicles with powerful lithium-ion batteries that contain very high energy.</p>
-    </div>
+<div class="why-choose">
+
+  <video autoplay muted loop playsinline class="why-choose-video">
+
+    <source src="video/powerup-video.mp4" type="video/mp4">
+
+  </video>
+
+  <div class="why-choose-text">
+    <h3>Why Choose PowerUp Batteries?</h3>
+
+    <p>
+      PowerUp Batteries aims to power electric vehicles with powerful
+      lithium-ion batteries that contain very high energy.
+    </p>
   </div>
- 
+
+</div>
+   
   <!-- What We Offer -->
   <div class="offer-section">
     <h2>What We<br>Offer</h2>
