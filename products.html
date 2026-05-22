@@ -295,6 +295,60 @@ img {
     font-size:0.8rem;
   }
 }
+
+        /* PRODUCTS HERO */
+.products-hero{
+  position:relative;
+  width:100%;
+  height:500px;
+  overflow:hidden;
+}
+
+/* VIDEO */
+.products-hero-video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* TEXT OVERLAY */
+.products-hero-text{
+  position:absolute;
+  bottom:40px;
+  left:40px;
+
+  max-width:600px;
+
+  color:white;
+  background:rgba(0,0,0,0.45);
+
+  padding:20px 24px;
+  border-radius:8px;
+
+  font-family:'Barlow', sans-serif;
+  font-size:1rem;
+  line-height:1.7;
+}
+
+/* MOBILE */
+@media (max-width:768px){
+
+  .products-hero{
+    height:350px;
+  }
+
+  .products-hero-text{
+    left:20px;
+    right:20px;
+    bottom:20px;
+
+    max-width:100%;
+
+    font-size:0.9rem;
+    padding:16px;
+  }
+}
         
     </style>
 </head>
@@ -372,14 +426,27 @@ img {
 </nav>
 
         <!-- ══════════════ PRODUCTS ══════════════ -->
-<div id="page-products" class="page">
+  <div id="page-products" class="page">
+
   <div class="products-hero">
-    <img src="Images/EV Battery pack.png" alt="EV Battery" onerror="this.style.background='#8aaac8';this.style.minHeight='220px';"/>
+
+    <!-- VIDEO -->
+    <video autoplay muted loop playsinline class="products-hero-video">
+
+      <source src="video/your-video.mp4" type="video/mp4">
+
+      Your browser does not support the video tag.
+
+    </video>
+
+    <!-- TEXT -->
     <div class="products-hero-text">
       With an extensive battery portfolio, differentiated solutions are provided to meet the diverse needs of users worldwide.
     </div>
+
   </div>
- 
+
+</div>
   <div class="products-intro">
     <h2>Electronic Vehicle Battery Packs</h2>
     <p>PowerUp Batteries, with its diverse product lineup and optimal solutions, delivers long driving range, high reliability, and quick charging in the EV market.</p>
