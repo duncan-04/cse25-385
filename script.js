@@ -119,25 +119,17 @@ function renderCart() {
 
   let subtotal = 0;
 
-  if (cart.length === 0) {
+if (cart.length === 0) {
 
   list.innerHTML = `
     <div class="empty-cart">
-
-      <div class="empty-cart-icon">
-        🛍️
-      </div>
-
-      <h3>YOUR CART IS EMPTY</h3>
-
-      <p>Add items from the shop to get started</p>
-
+      <h3>Your cart is empty</h3>
+      <p>Add products from the shop page.</p>
     </div>
   `;
 
   return;
 }
-
     
     return;
   }
