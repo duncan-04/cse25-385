@@ -121,13 +121,24 @@ function renderCart() {
 
   if (cart.length === 0) {
 
-    list.innerHTML = `
-      <div class="empty-cart">
-        <h3>Your cart is empty</h3>
-        <p>Add products from the shop page.</p>
-      </div>
-    `;
+  list.innerHTML = `
+    <div class="empty-cart">
 
+      <div class="empty-cart-icon">
+        🛍️
+      </div>
+
+      <h3>YOUR CART IS EMPTY</h3>
+
+      <p>Add items from the shop to get started</p>
+
+    </div>
+  `;
+
+  return;
+}
+
+    
     return;
   }
 
