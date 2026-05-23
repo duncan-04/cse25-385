@@ -36,3 +36,22 @@
   ::-webkit-scrollbar-track { background: #111; }
   ::-webkit-scrollbar-thumb { background: #44; }
 
+/* CART BADGE */
+#cart-badge{
+  background:#e63323;
+  color:white;
+  border-radius:50%;
+  padding:2px 7px;
+  font-size:0.7rem;
+  margin-left:5px;
+  display:none;
+}
+
+/* CART IMAGE */
+.cart-item-image img{
+  width:90px;
+  height:90px;
+  object-fit:cover;
+  border-radius:8px;
+}
+
