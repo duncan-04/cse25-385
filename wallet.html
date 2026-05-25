@@ -269,10 +269,11 @@
     </div>
   </div>
 </nav>
+</header>
 
 <!-- ══════════════ WALLET ══════════════ -->
-<div id="page-wallet" class="page wallet-page">
-  <div class="wallet-inner">
+<main id="page-wallet" class="page wallet-page">
+  <section class="wallet-inner">
     <h1>Add Card</h1>
     <div class="wallet-field">
       <input type="text" placeholder="Card Name" id="w-name" maxlength="40"/>
@@ -285,8 +286,9 @@
       <input type="text" placeholder="CVV" id="w-cvv" maxlength="4" oninput="this.value=this.value.replace(/\D/g,'')"/>
     </div>
     <button class="wallet-submit" onclick="saveCard()">Submit &#8594;</button>
-  </div>
-</div>
+  </form>
+</section>
+</main>
 
 <!-- PAGE NAVIGATION BUTTONS -->
 <div class="page-navigation">
